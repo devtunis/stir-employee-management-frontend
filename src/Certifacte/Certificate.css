@@ -1,0 +1,725 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap");
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.certificate-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      #263c5d 0%,
+      #09111e 70%
+    );
+
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   OUTER GOLD FRAME
+========================================================= */
+
+.certificate {
+  position: relative;
+
+  width: 1120px;
+  min-height: 790px;
+
+  padding: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #76530b 0%,
+      #c99725 18%,
+      #fff0a1 34%,
+      #cda33b 55%,
+      #8a630e 76%,
+      #f0d56d 91%,
+      #76530b 100%
+    );
+
+  box-shadow:
+    0 35px 80px rgba(0, 0, 0, 0.58),
+    0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
+
+/* =========================================================
+   INNER
+========================================================= */
+
+.certificate-inner {
+  position: relative;
+
+  min-height: 772px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      rgba(250, 248, 240, 0.965),
+      rgba(250, 248, 240, 0.965)
+    );
+
+  border: 3px solid #12243c;
+}
+
+
+/* =========================================================
+   CORNERS
+========================================================= */
+
+.corner {
+  position: absolute;
+
+  width: 58px;
+  height: 58px;
+
+  border-color: #b58a20;
+  border-style: solid;
+
+  z-index: 20;
+
+  pointer-events: none;
+}
+
+.corner-tl {
+  top: 24px;
+  left: 24px;
+
+  border-width: 2px 0 0 2px;
+}
+
+.corner-tr {
+  top: 24px;
+  right: 24px;
+
+  border-width: 2px 2px 0 0;
+}
+
+.corner-bl {
+  bottom: 24px;
+  left: 24px;
+
+  border-width: 0 0 2px 2px;
+}
+
+.corner-br {
+  bottom: 24px;
+  right: 24px;
+
+  border-width: 0 2px 2px 0;
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.certificate-hero {
+  position: relative;
+
+  height: 185px;
+
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+
+  border-bottom: 4px solid #b88b24;
+}
+
+
+/* Dark cinematic overlay */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 20, 38, 0.82) 0%,
+      rgba(7, 20, 38, 0.34) 48%,
+      rgba(7, 20, 38, 0.08) 100%
+    );
+}
+
+
+/* Hero text */
+
+.hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  height: 100%;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding: 0 58px 27px;
+}
+
+.hero-label {
+  color: #f5df87;
+
+  font-size: 10px;
+
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+
+  font-weight: 600;
+
+  margin-bottom: 8px;
+}
+
+.hero-title {
+  color: #ffffff;
+
+  font-family: "Cinzel", Georgia, serif;
+
+  font-size: 25px;
+
+  letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.certificate-content {
+  position: relative;
+
+  z-index: 2;
+
+  padding: 32px 78px 45px;
+}
+
+
+/* Inner decorative border */
+
+.certificate-content::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 14px;
+
+  border: 1px solid rgba(181, 138, 32, 0.65);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   ORNAMENT
+========================================================= */
+
+.ornament {
+  text-align: center;
+
+  color: #b48a20;
+
+  font-size: 20px;
+
+  letter-spacing: 10px;
+
+  margin-bottom: 5px;
+}
+
+.ornament span {
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+.subtitle {
+  text-align: center;
+
+  color: #8b6a20;
+
+  font-size: 9px;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.certificate-content h1 {
+  margin: 9px 0 7px;
+
+  text-align: center;
+
+  font-family: "Cinzel", Georgia, serif;
+
+  font-size: 38px;
+
+  letter-spacing: 5px;
+
+  color: #12243c;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   GOLD LINE
+========================================================= */
+
+.gold-line {
+  width: 240px;
+  height: 2px;
+
+  margin: 10px auto 18px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #b58a20,
+      #f4df83,
+      #b58a20,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+  text-align: center;
+
+  font-size: 12px;
+
+  color: #4a4a4a;
+
+  margin: 0 0 10px;
+}
+
+
+/* =========================================================
+   PARTICIPANT
+========================================================= */
+
+.participant-name {
+  text-align: center;
+
+  font-family: "Cinzel", Georgia, serif;
+
+  font-size: 25px;
+
+  color: #12243c;
+
+  font-weight: 600;
+
+  margin: 7px auto 14px;
+
+  padding-bottom: 7px;
+
+  border-bottom: 1px solid #d0b15a;
+
+  max-width: 680px;
+}
+
+
+/* =========================================================
+   BODY TEXT
+========================================================= */
+
+.body-text {
+  text-align: center;
+
+  max-width: 790px;
+
+  margin: 11px auto;
+
+  line-height: 1.7;
+
+  font-size: 11.5px;
+
+  color: #3d3d3d;
+}
+
+.event-name {
+  font-family: "Cinzel", Georgia, serif;
+
+  color: #8a6819;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+.certificate-meta {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 42px;
+
+  margin: 19px auto 12px;
+
+  max-width: 760px;
+
+  padding: 12px 20px;
+
+  border-top: 1px solid rgba(181, 138, 32, 0.3);
+
+  border-bottom: 1px solid rgba(181, 138, 32, 0.3);
+}
+
+.meta-item {
+  text-align: center;
+
+  min-width: 150px;
+}
+
+.meta-label {
+  display: block;
+
+  color: #a07a22;
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 4px;
+}
+
+.meta-value {
+  color: #172941;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+.meta-divider {
+  width: 1px;
+
+  height: 30px;
+
+  background: #d7bd6a;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.certificate-footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-end;
+
+  margin-top: 20px;
+
+  padding: 0 45px;
+}
+
+
+/* DATE */
+
+.date-block {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  color: #444;
+
+  font-size: 10px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   SIGNATURE
+========================================================= */
+
+.signature-block {
+  width: 220px;
+
+  text-align: center;
+}
+
+.signature-placeholder {
+  height: 42px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: center;
+
+  color: #7d6a3a;
+
+  font-family: "Cinzel", serif;
+
+  font-size: 11px;
+
+  font-style: italic;
+
+  opacity: 0.72;
+
+  margin-bottom: 3px;
+}
+
+.signature-line {
+  height: 1px;
+
+  background: #555;
+
+  margin-bottom: 7px;
+}
+
+.signature-block strong {
+  display: block;
+
+  font-family: "Cinzel", serif;
+
+  font-size: 10px;
+
+  color: #14243c;
+
+  letter-spacing: 1px;
+}
+
+.signature-block small {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 8px;
+
+  color: #777;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   SEAL
+========================================================= */
+
+.certificate-seal {
+  position: absolute;
+
+  right: 63px;
+  bottom: 44px;
+
+  width: 92px;
+  height: 92px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #f7df77 0%,
+      #c99b27 47%,
+      #805d0c 100%
+    );
+
+  border: 4px double #fff0a5;
+
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 2px #80600b;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  color: #fff8c7;
+
+  z-index: 10;
+}
+
+.certificate-seal::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 7px;
+
+  border: 1px solid rgba(255, 245, 180, 0.8);
+
+  border-radius: 50%;
+}
+
+.seal-inner {
+  position: relative;
+
+  z-index: 2;
+
+  font-family: "Cinzel", serif;
+
+  text-shadow:
+    1px 1px 2px #624600;
+}
+
+.seal-star {
+  font-size: 18px;
+
+  line-height: 16px;
+}
+
+.seal-title {
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  line-height: 1.4;
+}
+
+.seal-small {
+  font-size: 7px;
+
+  letter-spacing: 0.5px;
+
+  margin-top: 2px;
+}
+
+
+/* =========================================================
+   WATERMARK
+========================================================= */
+
+.certificate-watermark {
+  position: absolute;
+
+  left: 50%;
+  top: 57%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-17deg);
+
+  z-index: 6;
+
+  font-family: "Cinzel", serif;
+
+  font-size: 62px;
+
+  letter-spacing: 8px;
+
+  color: rgba(25, 42, 65, 0.065);
+
+  pointer-events: none;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   BOTTOM NOTICE
+========================================================= */
+
+.certificate-notice {
+  position: absolute;
+
+  bottom: 13px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  color: #9a8145;
+
+  font-size: 7px;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .certificate-page {
+    overflow-x: auto;
+
+    justify-content: flex-start;
+
+    align-items: flex-start;
+  }
+
+  .certificate {
+    flex-shrink: 0;
+  }
+}
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+
+  .certificate-page {
+    min-height: 100vh;
+
+    padding: 0;
+
+    background: white;
+  }
+
+  .certificate {
+    box-shadow: none;
+
+    width: 1120px;
+  }
+}

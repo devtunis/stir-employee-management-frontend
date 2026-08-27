@@ -1,0 +1,321 @@
+.lodaer_stir{
+
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+     background-color: rgba(207, 198, 198, 0.5);
+    backdrop-filter: blur(2px);
+
+}
+
+
+
+
+.stir-loader {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2px;
+
+  padding: 12px 18px;
+
+  background: transparent;
+
+  user-select: none;
+ 
+}
+
+/* Hidden SVG definitions */
+.stir-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* --------------------------------
+   LETTER
+-------------------------------- */
+
+.stir-letter {
+  position: relative;
+
+  width: 43px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
+}
+
+.stir-letter span {
+  position: relative;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 47px;
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: -5px;
+
+  color: transparent;
+
+  -webkit-text-stroke: 2.4px #064A9B;
+
+  background: linear-gradient(
+    180deg,
+    #0B67C1 0%,
+    #064A9B 55%,
+    #00346F 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  filter:
+    drop-shadow(0 2px 2px rgba(0, 47, 108, 0.12));
+
+  animation: stirLetter 2s ease-in-out infinite;
+}
+
+/* --------------------------------
+   INDIVIDUAL LETTERS
+-------------------------------- */
+
+.stir-s span {
+  animation-delay: 0s;
+}
+
+.stir-t span {
+  animation-delay: 0.12s;
+}
+
+.stir-i span {
+  animation-delay: 0.24s;
+}
+
+.stir-r span {
+  animation-delay: 0.36s;
+}
+
+/* --------------------------------
+   RED ACCENT
+-------------------------------- */
+
+.stir-i::after {
+  content: "";
+
+  position: absolute;
+
+  width: 25px;
+  height: 5px;
+
+  left: 50%;
+  top: 3px;
+
+  transform: translateX(-50%);
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    #B9151D,
+    #E3262E,
+    #FF4A4A
+  );
+
+  box-shadow:
+    0 0 8px rgba(227, 38, 46, 0.28);
+
+  animation: stirAccent 2s ease-in-out infinite;
+}
+
+/* --------------------------------
+   BOTTOM LOADING LINE
+-------------------------------- */
+
+.stir-loader-line {
+  position: absolute;
+
+  bottom: 2px;
+  left: 50%;
+
+  width: 130px;
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: rgba(6, 74, 155, 0.10);
+}
+
+.stir-loader-line::before {
+  content: "";
+
+  position: absolute;
+
+  left: -45%;
+
+  width: 45%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #064A9B,
+    #E3262E,
+    transparent
+  );
+
+  animation: stirLine 1.8s ease-in-out infinite;
+}
+
+/* --------------------------------
+   ANIMATIONS
+-------------------------------- */
+
+@keyframes stirLetter {
+  0% {
+    opacity: 0.35;
+    transform: translateY(7px) scale(0.94);
+    filter:
+      drop-shadow(
+        0 0 0 rgba(6, 74, 155, 0)
+      );
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+
+    filter:
+      drop-shadow(
+        0 3px 7px rgba(6, 74, 155, 0.18)
+      );
+  }
+
+  65% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0.35;
+    transform: translateY(-5px) scale(0.96);
+  }
+}
+
+@keyframes stirAccent {
+  0% {
+    opacity: 0;
+    transform:
+      translateX(-50%)
+      scaleX(0.3);
+  }
+
+  30% {
+    opacity: 1;
+    transform:
+      translateX(-50%)
+      scaleX(1);
+  }
+
+  70% {
+    opacity: 1;
+    transform:
+      translateX(-50%)
+      scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translateX(-50%)
+      scaleX(0.3);
+  }
+}
+
+@keyframes stirLine {
+  0% {
+    left: -45%;
+  }
+
+  50% {
+    left: 50%;
+  }
+
+  100% {
+    left: 110%;
+  }
+}
+ 
+.stir-loading-screen {
+  position: fixed;
+  inset: 0;
+
+  z-index: 99999;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(6, 74, 155, 0.06),
+      transparent 45%
+    ),
+    #ffffff;
+}
+
+.stir-loading-text {
+  margin-top: 18px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+
+  color: #52708F;
+
+  animation: stirText 1.8s ease-in-out infinite;
+}
+
+@keyframes stirText {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

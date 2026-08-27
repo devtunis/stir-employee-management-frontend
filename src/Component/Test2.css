@@ -1,0 +1,393 @@
+/* =========================================================
+   WRAPPER
+========================================================= */
+
+.calendar-wrapper {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+  padding: 30px;
+
+ 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 99999;
+}
+
+
+/* =========================================================
+   CALENDAR CARD
+========================================================= */
+
+.calendar-card {
+  width: 250px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5eaf1;
+
+  border-radius: 12px;
+
+  padding: 18px;
+
+  box-shadow:
+    0 8px 25px rgba(17, 49, 91, 0.08);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.calendar-header {
+  padding-bottom: 14px;
+
+  margin-bottom: 10px;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+.calendar-header h2 {
+  margin: 0;
+
+  color: #123d7a;
+
+  font-size: 15px;
+
+  font-weight: 700;
+}
+
+.calendar-header p {
+  margin: 4px 0 0;
+
+  color: #8492a6;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   CALENDAR
+========================================================= */
+
+.calendar-card .react-calendar {
+  width: 100%;
+
+  max-width: 100%;
+
+  border: none;
+
+  background: transparent;
+
+  font-family:
+    "Segoe UI",
+    Inter,
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.calendar-card .react-calendar__navigation {
+  height: 38px;
+
+  margin-bottom: 7px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 3px;
+}
+
+.calendar-card
+.react-calendar__navigation button {
+  min-width: 32px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: #234d82;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.calendar-card
+.react-calendar__navigation
+.react-calendar__navigation__label {
+  flex: 1;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  color: #123d7a;
+}
+
+.calendar-card
+.react-calendar__navigation button:hover {
+  background: #edf4fc;
+
+  color: #0754ad;
+}
+
+.calendar-card
+.react-calendar__navigation button:disabled {
+  background: transparent;
+}
+
+
+/* =========================================================
+   WEEKDAYS
+========================================================= */
+
+.calendar-card
+.react-calendar__month-view__weekdays {
+  margin-bottom: 5px;
+}
+
+.calendar-card
+.react-calendar__month-view__weekdays__weekday {
+  padding: 6px 0;
+
+  color: #91a0b4;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+}
+
+.calendar-card
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   DAYS
+========================================================= */
+
+.calendar-card
+.react-calendar__month-view__days {
+  row-gap: 3px;
+}
+
+.calendar-card
+.react-calendar__tile {
+  height: 37px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: #405775;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.calendar-card
+.react-calendar__tile:hover {
+  background: #edf5ff;
+
+  color: #0754ad;
+}
+
+
+/* =========================================================
+   TODAY
+========================================================= */
+
+.calendar-card
+.react-calendar__tile--now {
+  background: #eef5ff;
+
+  color: #0754ad;
+
+  font-weight: 700;
+}
+
+.calendar-card
+.react-calendar__tile--now:hover {
+  background: #dcecff;
+
+  color: #06489d;
+}
+
+
+/* =========================================================
+   SELECTED DATE
+========================================================= */
+
+.calendar-card
+.react-calendar__tile--active {
+  background:
+    linear-gradient(
+      135deg,
+      #0754b3,
+      #06479c
+    );
+
+  color: #ffffff;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 4px 10px
+    rgba(7, 75, 164, 0.22);
+}
+
+.calendar-card
+.react-calendar__tile--active:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #0860c7,
+      #0750a8
+    );
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SELECTED + TODAY
+========================================================= */
+
+.calendar-card
+.react-calendar__tile--active.react-calendar__tile--now {
+  background:
+    linear-gradient(
+      135deg,
+      #0754b3,
+      #06479c
+    );
+
+  color: white;
+}
+
+
+/* =========================================================
+   PREVIOUS / NEXT MONTH DAYS
+========================================================= */
+
+.calendar-card
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #c4ccd8;
+}
+
+.calendar-card
+.react-calendar__month-view__days__day--neighboringMonth:hover {
+  color: #7890ad;
+
+  background: #f4f7fb;
+}
+
+
+/* =========================================================
+   DISABLED DAYS
+========================================================= */
+
+.calendar-card
+.react-calendar__tile:disabled {
+  color: #cbd2dc;
+
+  background: transparent;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   YEAR / DECADE / CENTURY VIEW
+========================================================= */
+
+.calendar-card
+.react-calendar__year-view
+.react-calendar__tile,
+.calendar-card
+.react-calendar__decade-view
+.react-calendar__tile,
+.calendar-card
+.react-calendar__century-view
+.react-calendar__tile {
+  height: 55px;
+
+  border-radius: 7px;
+
+  font-size: 10px;
+}
+
+.calendar-card
+.react-calendar__year-view
+.react-calendar__tile:hover,
+.calendar-card
+.react-calendar__decade-view
+.react-calendar__tile:hover,
+.calendar-card
+.react-calendar__century-view
+.react-calendar__tile:hover {
+  background: #edf5ff;
+
+  color: #0754ad;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 500px) {
+
+  .calendar-wrapper {
+    padding: 15px;
+  }
+
+  .calendar-card {
+    width: 100%;
+
+    max-width: 350px;
+
+    padding: 15px;
+  }
+
+  .calendar-card
+  .react-calendar__tile {
+    height: 34px;
+  }
+}

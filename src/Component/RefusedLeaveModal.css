@@ -1,0 +1,654 @@
+ /* =========================================
+   REFUSED LEAVE MODAL — PREMIUM
+========================================= */
+
+.refusedLeaveModel {
+  width: 700px;
+  max-width: calc(100vw - 32px);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 999999999;
+
+  padding: 26px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.99),
+      rgba(248, 250, 253, 0.99)
+    );
+
+  border: 1px solid rgba(15, 35, 72, 0.09);
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 40px 100px rgba(8, 25, 60, 0.20),
+    0 15px 40px rgba(8, 25, 60, 0.08),
+    0 2px 8px rgba(8, 25, 60, 0.04);
+
+  animation: refusedModal 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor:crosshair;
+}
+
+
+/* =========================================
+   PREMIUM TOP ACCENT — NAVY ONLY
+========================================= */
+
+.refusedLeaveModel::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #071a3d 0%,
+      #0b2861 25%,
+      #173b79 50%,
+      #0b2861 75%,
+      #071a3d 100%
+    );
+}
+
+
+/* =========================================
+   SUBTLE LIGHT EFFECT
+========================================= */
+
+.refusedLeaveModel::after {
+  content: "";
+
+  position: absolute;
+
+  top: -120px;
+  right: -100px;
+
+  width: 240px;
+  height: 240px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(23, 59, 121, 0.07),
+      transparent 68%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.refusedLeaveHeader {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 21px;
+
+  border-bottom: 1px solid rgba(15, 35, 72, 0.07);
+}
+
+
+.refusedLeaveHeader > div:first-child {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+}
+
+
+/* =========================================
+   REFUSAL ICON
+========================================= */
+
+.refusedLeaveHeader > div:first-child::before {
+  content: "×";
+
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffafa,
+      #ffe9ec
+    );
+
+  border: 1px solid rgba(218, 47, 67, 0.16);
+
+  color: #d52f45;
+
+  font-size: 25px;
+  font-weight: 400;
+
+  box-shadow:
+    0 8px 18px rgba(213, 47, 69, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+}
+
+
+/* =========================================
+   HEADER TYPOGRAPHY
+========================================= */
+
+.refusedLeaveHeader h3 {
+  margin: 0;
+
+  color: #0d2149;
+
+  font-size: 19px;
+  font-weight: 750;
+
+  letter-spacing: -0.5px;
+
+  line-height: 1.2;
+}
+
+
+.refusedLeaveHeader p {
+  margin: 5px 0 0;
+
+  color: #8a96a9;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================
+   STATUS BADGE
+========================================= */
+
+.refusedBadge {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 7px 12px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff8f9,
+      #fff1f3
+    );
+
+  border: 1px solid rgba(216, 48, 69, 0.13);
+
+  color: #ce3044;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.35px;
+
+  box-shadow:
+    0 5px 14px rgba(213, 47, 69, 0.06);
+}
+
+
+.refusedBadge::before {
+  content: "";
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #d9364c;
+
+  box-shadow:
+    0 0 0 4px rgba(217, 54, 76, 0.08),
+    0 0 10px rgba(217, 54, 76, 0.25);
+}
+
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.refusedLeaveDetails {
+  display: grid;
+
+  grid-template-columns: 1fr 1.35fr 0.85fr;
+
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+
+.detailBox {
+  position: relative;
+
+  min-height: 66px;
+
+  padding: 13px 14px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.9),
+      rgba(246, 248, 252, 0.95)
+    );
+
+  border: 1px solid #e6ebf3;
+
+  box-shadow:
+    0 3px 10px rgba(16, 36, 82, 0.025);
+
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+
+.detailBox:hover {
+  transform: translateY(-3px);
+
+  border-color: #d5deec;
+
+  box-shadow:
+    0 12px 25px rgba(16, 36, 82, 0.07);
+}
+
+
+/* Small corner detail */
+
+.detailBox::after {
+  content: "";
+
+  position: absolute;
+
+  top: 9px;
+  right: 9px;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #9ba8bb;
+
+  opacity: 0.55;
+}
+
+
+.detailBox span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #929daf;
+
+  font-size: 8px;
+  font-weight: 750;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.8px;
+}
+
+
+.detailBox strong {
+  display: block;
+
+  color: #102653;
+
+  font-size: 12px;
+  font-weight: 750;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================
+   REFUSAL REASON
+========================================= */
+
+.refusedReason {
+  position: relative;
+
+  margin-top: 16px;
+
+  padding: 16px 17px 16px 19px;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffafb 0%,
+      #fff6f7 100%
+    );
+
+  border: 1px solid rgba(218, 47, 67, 0.13);
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 15px rgba(218, 47, 67, 0.035);
+}
+
+
+/* Red accent */
+
+.refusedReason::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 3px;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #d52f45,
+      #e85a69
+    );
+}
+
+
+/* Subtle glow */
+
+.refusedReason::after {
+  content: "";
+
+  position: absolute;
+
+  right: -50px;
+  bottom: -60px;
+
+  width: 130px;
+  height: 130px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(213, 47, 69, 0.06),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+
+.refusedReason span {
+  display: block;
+
+  color: #cf3044;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.9px;
+}
+
+
+.refusedReason p {
+  position: relative;
+
+  z-index: 1;
+
+  margin: 7px 0 0;
+
+  color: #56647a;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.refusedLeaveFooter {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 20px;
+
+  padding-top: 17px;
+
+  border-top: 1px solid rgba(15, 35, 72, 0.07);
+}
+
+
+.refusedLeaveFooter small {
+  display: flex;
+  align-items: center;
+
+  color: #929daf;
+
+  font-size: 9px;
+  font-weight: 550;
+}
+
+
+.refusedLeaveFooter small::before {
+  content: "";
+
+  width: 5px;
+  height: 5px;
+
+  margin-right: 8px;
+
+  border-radius: 50%;
+
+  background: #9ba8bb;
+
+  box-shadow:
+    0 0 0 3px rgba(155, 168, 187, 0.10);
+}
+
+
+/* =========================================
+   PREMIUM BUTTON
+========================================= */
+
+.refusedLeaveFooter button {
+  position: relative;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  padding: 10px 21px;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #081d47 0%,
+      #102f68 55%,
+      #173c7b 100%
+    );
+
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 750;
+
+  letter-spacing: 0.1px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 9px 20px rgba(8, 29, 71, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+
+/* Button highlight */
+
+.refusedLeaveFooter button::before {
+  content: "";
+
+  position: absolute;
+
+  top: 1px;
+  left: 12px;
+  right: 12px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+
+.refusedLeaveFooter button:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.06);
+
+  box-shadow:
+    0 13px 28px rgba(8, 29, 71, 0.27),
+    inset 0 1px 0 rgba(255, 255, 255, 0.13);
+}
+
+
+.refusedLeaveFooter button:active {
+  transform: translateY(0);
+
+  box-shadow:
+    0 6px 14px rgba(8, 29, 71, 0.18);
+}
+
+
+/* =========================================
+   MODAL ANIMATION
+========================================= */
+
+@keyframes refusedModal {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -46%)
+      scale(0.94);
+  }
+
+  60% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -51%)
+      scale(1.015);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 650px) {
+
+  .refusedLeaveModel {
+    width: calc(100% - 28px);
+
+    padding: 21px;
+
+    border-radius: 21px;
+  }
+
+
+  .refusedLeaveDetails {
+    grid-template-columns: 1fr;
+  }
+
+
+  .refusedLeaveHeader h3 {
+    font-size: 17px;
+  }
+
+
+  .refusedLeaveHeader p {
+    font-size: 10px;
+  }
+
+
+  .refusedBadge {
+    padding: 6px 9px;
+
+    font-size: 8px;
+  }
+
+
+  .refusedLeaveFooter {
+    gap: 15px;
+  }
+
+
+  .refusedLeaveFooter small {
+    font-size: 8px;
+  }
+}
