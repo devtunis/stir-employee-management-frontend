@@ -495,13 +495,13 @@ function Dashboard() {
 
         <div className="city-background" />
 
-
+   {/* ================= owner code ================= */}
        {
         owner=="owner" ? 
         
         
         <div className="requests-page">
-      <div className="requests-header">
+       <div className="requests-header">
         <div>
           <span className="requests-eyebrow">ACCESS MANAGEMENT</span>
           <h1>Pending requests</h1>
@@ -568,7 +568,7 @@ function Dashboard() {
         
         : 
         <>
-
+ {/* ================= user | admin ================= */}
 
 
 {
