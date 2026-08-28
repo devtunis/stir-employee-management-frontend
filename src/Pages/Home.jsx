@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./home.css";
 import { useNavigate } from "react-router-dom";
 import { useStoreauth } from "../useStore/UseStoreContext";
-import axios from "../../axiosClient/axios.js";
+import axios from "../axiosClient/axios.js";
 import { Building2, LogOut, User } from "lucide-react";
 
 const organizations = [

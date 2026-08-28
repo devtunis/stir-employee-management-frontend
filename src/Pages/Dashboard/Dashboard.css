@@ -1944,3 +1944,25 @@ textarea:focus {
 }
 
 
+
+
+
+
+
+
+.__dashboard__follow__set__admins{
+
+  width: 90%;
+  height: 80vh;
+  background-color: rgb(198, 198, 191);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 999999999;
+  border-radius: 10px;
+}
+
+
+
+

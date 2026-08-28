@@ -1,5 +1,5 @@
 import { createContext,useContext, useState, useEffect } from "react";
-import axios from "../../axiosClient/axios.js"
+import axios from "../axiosClient/axios.js"
 import { useNavigate } from "react-router-dom";
 
  

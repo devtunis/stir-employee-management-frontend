@@ -7,7 +7,7 @@ import {
 
 import "./CreateOrganization.css";
 import { useNavigate } from "react-router-dom";
-import axios from "../../../axiosClient/axios.js";
+import axios from "../../axiosClient/axios.js"
 import STIRLoader from "../../Component/StirLoader.jsx";
 
 export default function CreateOrganization() {
