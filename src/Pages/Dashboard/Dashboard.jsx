@@ -24,7 +24,7 @@ import "./Dashboard.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useStoreauth } from "../../useStore/UseStoreContext";
 import { useEffect, useState } from "react";
-import axios from "../../../axiosClient/axios.js";
+import axios from "../../axiosClient/axios.js"
 import SimpleLoader from "../../Component/SimpleLoader.jsx";
 import STIRLoader from "../../Component/StirLoader.jsx";
 import Lodaer from "../../Component/Lodaer.jsx";
@@ -40,65 +40,23 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import RefusedLeaveModal from "../../Component/RefusedLeaveModal.jsx";
 import { daysBetween } from "../../util/day.js";
 
+import { useCallback } from "react";
+import {
+  ReactFlow,
+  MiniMap,
+  Controls,
+  Background,
+  useNodesState,
+  useEdgesState,
+  addEdge,
+} from "@xyflow/react";
+
+import "@xyflow/react/dist/style.css";
+import AdminStructure from "../AdminStructure/AdminStructure.jsx";
 
 
 
-const leaveRequests = [
-  {
-    date: "10/05/2024",
-    period: "20/05/2024 - 24/05/2024",
-    type: "Congé annuel",
-    status: "En attente",
-    statusType: "pending",
-  } ,
-  {
-    date: "10/05/2024",
-    period: "20/05/2024 - 24/05/2024",
-    type: "Congé annuel",
-    status: "En attente",
-    statusType: "pending",
-  } , {
-    date: "10/05/2024",
-    period: "20/05/2024 - 24/05/2024",
-    type: "Congé annuel",
-    status: "En attente",
-    statusType: "pending",
-  } , {
-    date: "10/05/2024",
-    period: "20/05/2024 - 24/05/2024",
-    type: "Congé annuel",
-    status: "En attente",
-    statusType: "pending",
-  } , {
-    date: "10/05/2024",
-    period: "20/05/2024 - 24/05/2024",
-    type: "Congé annuel",
-    status: "En attente",
-    statusType: "pending",
-  } ,
-  , {
-    date: "10/05/2024",
-    period: "20/05/2024 - 24/05/2024",
-    type: "Congé annuel",
-    status: "En attente",
-    statusType: "pending",
-  } ,
-  , {
-    date: "10/05/2024",
-    period: "20/05/2024 - 24/05/2024",
-    type: "Congé annuel",
-    status: "En attente",
-    statusType: "pending",
-  } ,
-  , {
-    date: "10/05/2024",
-    period: "20/05/2024 - 24/05/2024",
-    type: "Congé annuel",
-    status: "En attente",
-    statusType: "pending",
-  } ,
-];
-
+ 
 function StatCard({
   title,
   value,
@@ -108,7 +66,8 @@ function StatCard({
   type = "blue",
 }) {
   
-   
+
+
   return (
     <div className="stat-card">
       <div className="stat-content">
@@ -150,14 +109,13 @@ function SidebarItem({ icon, children, active }) {
 }
 
 function Dashboard() {
-
  
 
 
  const [showM,setShowM] = useState(false)
 
 
-  
+  const [__showDashAdmin,__setDashAdmin] = useState(()=>JSON.parse(localStorage.getItem("showDadming"))  || false )
 
 
   const [loaders,setLoaders] = useState(false)
@@ -206,7 +164,8 @@ function Dashboard() {
      const [PendingRequests,SetPendingRequests] =   useState([])
      const [currentid,setaccpetload] = useState("")
      const [dataUser,setDataUser] = useState({})
-     
+     const [ListOfMembersForOwner,setListOfMembersForOwner] = useState([])
+     const [ListOfAdminForOwner,setListOfAdminForOwner] = useState([])
    
 
      const handleDateChangedebut = (newDate) => {
@@ -309,10 +268,18 @@ function Dashboard() {
         const fetchComingrequest = await axios.post("/ogranization/requests/v1/room",{
           "roomId": url.roomId
         })
+
+        const fetchUsersandMembers = await axios.post("/ownerccess/v1",{
+             "roomId": url.roomId
+        })
+     
+        setListOfMembersForOwner(fetchUsersandMembers.data.members.members)
+        setListOfAdminForOwner(fetchUsersandMembers.data.adminlist)
+    
         SetPendingRequests(fetchComingrequest.data.reverse())
-        console.log(fetchComingrequest.data)
+     
       
-          setload(false)
+        setload(false)
          
        
        }
@@ -471,7 +438,15 @@ function Dashboard() {
      }  
 
      {(owner=="user" || owner.includes("admin"))  && <> <SidebarItem  icon={<PlusCircle size={19} />} >  Envoyer demande </SidebarItem> </>    }
-     {owner=="owner"   && <> <SidebarItem  icon={<User size={19} />} >  set admins </SidebarItem> </>    }
+     {owner=="owner"   && <> <SidebarItem  icon={<User size={19} />} >  <h2 onClick={()=>{
+      __setDashAdmin((p) => {
+        const newValue = !p;
+        localStorage.setItem("showDadming", JSON.stringify(newValue));
+        return newValue;
+      });
+
+      
+     }}> set admins</h2> </SidebarItem> </>    }
           
         
  
@@ -499,8 +474,23 @@ function Dashboard() {
        {
         owner=="owner" ? 
         
+       
         
         <div className="requests-page">
+
+
+        {/* <div className="__dashboard__follow__set__admins">
+         
+        </div> */}
+        {
+         __showDashAdmin &&   <AdminStructure
+
+          listMember={ListOfMembersForOwner}
+          listAdmins={ListOfAdminForOwner}
+          /> 
+        }
+
+        
        <div className="requests-header">
         <div>
           <span className="requests-eyebrow">ACCESS MANAGEMENT</span>
@@ -687,6 +677,7 @@ function Dashboard() {
                           style={{cursor:"pointer"}}
                             className={`status ${request.reponse=="yes"?"approved":"refure"}`}
                           >
+                            
                             {request.reponse=="yes"?<p>Approuvé</p>:<p onPointerEnter={()=>HandelShowDetailsRequestConge(request)}>Refusé</p>}
                           </span>
                         </td>

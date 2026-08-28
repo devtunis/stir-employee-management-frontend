@@ -1,0 +1,1159 @@
+/* =========================================================
+   MAIN
+========================================================= */
+
+.adminManagementPage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  box-sizing: border-box;
+  
+  
+
+  background: #f5f8fc;
+ 
+  color: #102452;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+/* =========================================================
+   TOP STRUCTURE CARD
+========================================================= */
+
+.adminStructureCard {
+  width: 100%;
+
+  padding: 20px 22px 17px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e7edf5;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 5px 18px rgba(17, 42, 84, 0.05);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.structureHeader {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid #edf1f6;
+}
+
+.structureTitle h2 {
+  margin: 0;
+
+  color: #142b58;
+
+  font-size: 16px;
+
+  font-weight: 750;
+
+  letter-spacing: -0.25px;
+}
+
+.structureTitle p {
+  margin: 4px 0 0;
+
+  color: #8795aa;
+
+  font-size: 9px;
+}
+
+
+.structureActions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+
+.secondaryButton,
+.primaryButton {
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 0 13px;
+
+  border-radius: 7px;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+.secondaryButton {
+  color: #294878;
+
+  background: #ffffff;
+
+  border: 1px solid #dce4ef;
+}
+
+.secondaryButton:hover {
+  background: #f7faff;
+}
+
+
+.primaryButton {
+  color: #ffffff;
+
+  border: 1px solid #245ed2;
+
+  background: linear-gradient(
+    135deg,
+    #1956cc,
+    #2368e8
+  );
+
+  box-shadow:
+    0 5px 13px rgba(29, 91, 207, 0.18);
+}
+
+.primaryButton:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 17px rgba(29, 91, 207, 0.25);
+}
+
+
+/* =========================================================
+   ADMIN CHAIN
+========================================================= */
+
+.adminChain {
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  margin-top: 18px;
+  justify-content: space-around;
+}
+
+
+.adminNode {
+  position: relative;
+
+  
+  height: 92px;
+  width: 300px;
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 13px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e4eaf3;
+
+  border-radius: 10px;
+
+  transition: 0.2s ease;
+}
+
+.adminNode:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(19, 46, 91, 0.07);
+}
+
+
+/* =========================================================
+   ADMIN AVATAR
+========================================================= */
+
+.adminAvatar {
+  width: 49px;
+  height: 49px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  border: 4px solid #ffffff;
+
+  box-shadow:
+    0 2px 8px rgba(20, 40, 75, 0.12);
+}
+
+
+.adminAvatar.blue {
+  color: #2860c5;
+  background: #e6efff;
+}
+
+.adminAvatar.green {
+  color: #26956b;
+  background: #e4f6ee;
+}
+
+.adminAvatar.purple {
+  color: #8255c8;
+  background: #eee7fb;
+}
+
+
+/* =========================================================
+   ADMIN CONTENT
+========================================================= */
+
+.adminNodeContent {
+  min-width: 0;
+}
+
+.levelBadge {
+  display: inline-block;
+
+  padding: 3px 8px;
+
+  margin-bottom: 3px;
+
+  border-radius: 20px;
+
+  font-size: 7px;
+
+  font-weight: 700;
+}
+
+
+.levelBadge.blue {
+  color: #3970d2;
+  background: #edf3ff;
+}
+
+.levelBadge.green {
+  color: #26956b;
+  background: #eaf8f1;
+}
+
+.levelBadge.purple {
+  color: #8255c8;
+  background: #f2edfc;
+}
+
+
+.adminNode h3 {
+  margin: 0;
+
+  color: #172d59;
+
+  font-size: 13px;
+
+  line-height: 1.1;
+}
+
+.adminRole {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  margin-top: 4px;
+
+  color: #78869b;
+
+  font-size: 9px;
+}
+
+
+.adminUserCount {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  margin-top: 5px;
+
+  color: #708098;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   HEAD BADGE
+========================================================= */
+
+.headBadge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 3px;
+
+  padding: 3px 6px;
+
+  border-radius: 5px;
+
+  color: #3264c0;
+
+  background: #edf3ff;
+
+  font-size: 7px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   MORE
+========================================================= */
+
+.nodeMore {
+  position: absolute;
+
+  top: 8px;
+
+  right: 8px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: none;
+
+  background: transparent;
+
+  color: #72829a;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   ARROWS
+========================================================= */
+
+.chainArrow {
+  width: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #48648e;
+}
+
+
+/* =========================================================
+   OWNER INFORMATION
+========================================================= */
+
+.ownerInformation {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 16px;
+
+  padding: 10px 12px;
+
+  border: 1px solid #dfe9fa;
+
+  border-radius: 6px;
+
+  background: #f8fbff;
+
+  color: #687b99;
+
+  font-size: 9px;
+}
+
+
+.ownerInfoIcon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #3470d6;
+}
+
+
+/* =========================================================
+   BOTTOM GRID
+========================================================= */
+
+.managementGrid {
+  display: grid;
+
+  grid-template-columns: 1.45fr 1fr;
+
+  gap: 16px;
+
+  margin-top: 16px;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.usersCard,
+.manageCard {
+  background: #ffffff;
+
+  border: 1px solid #e7edf5;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 5px 18px rgba(17, 42, 84, 0.04);
+    height: 450px;
+    overflow-y: auto;
+}
+
+
+/* =========================================================
+   USERS HEADER
+========================================================= */
+
+.usersHeader {
+  padding: 17px 16px 12px;
+}
+
+.usersHeader h2,
+.manageHeader h2 {
+  margin: 0;
+
+  color: #142b58;
+
+  font-size: 13px;
+
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   SEARCH TOOLS
+========================================================= */
+
+.usersTools {
+  display: grid;
+
+  grid-template-columns: 1fr 160px 36px;
+
+  gap: 8px;
+
+  padding: 0 16px 13px;
+}
+
+
+.searchBox {
+  height: 31px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 0 10px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #dfe6f0;
+
+  border-radius: 6px;
+
+  color: #8b98aa;
+}
+
+.searchBox input {
+  width: 100%;
+
+  border: none;
+
+  outline: none;
+
+  color: #33496d;
+
+  font-size: 9px;
+
+  background: transparent;
+}
+
+.searchBox input::placeholder {
+  color: #a0acbc;
+}
+
+
+.roleFilter {
+  height: 31px;
+
+  padding: 0 9px;
+
+  border: 1px solid #dfe6f0;
+
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  color: #61728e;
+
+  outline: none;
+
+  font-size: 9px;
+}
+
+
+.filterButton {
+  height: 31px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid #dfe6f0;
+
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  color: #526988;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.usersTable {
+  width: 100%;
+
+  overflow: hidden;
+}
+
+
+.tableHeader,
+.userTableRow {
+  display: grid;
+
+  grid-template-columns:
+    1.15fr
+    1.25fr
+    0.85fr
+    0.75fr
+    35px;
+
+  align-items: center;
+
+  column-gap: 7px;
+
+  padding: 0 16px;
+
+}
+
+
+.tableHeader {
+  min-height: 32px;
+
+  background: #f7f9fc;
+
+  border-top: 1px solid #edf1f6;
+
+  border-bottom: 1px solid #edf1f6;
+}
+
+.tableHeader span {
+  color: #75849b;
+
+  font-size: 7px;
+
+  font-weight: 700;
+}
+
+
+.userTableRow {
+  min-height: 47px;
+
+  border-bottom: 1px solid #edf1f5;
+}
+
+.userTableRow:hover {
+  background: #fbfcff;
+}
+
+
+/* =========================================================
+   TABLE USER
+========================================================= */
+
+.tableUser {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  min-width: 0;
+}
+
+.tableUser strong {
+  overflow: hidden;
+
+  color: #24385d;
+
+  font-size: 9px;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+
+.smallAvatar {
+  width: 25px;
+  height: 25px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #eaf1ff;
+
+  color: #2b62c4;
+
+  font-size: 8px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.userContact {
+  min-width: 0;
+}
+
+.userContact span,
+.userContact small {
+  display: block;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.userContact span {
+  color: #667896;
+
+  font-size: 8px;
+}
+
+.userContact small {
+  margin-top: 2px;
+
+  color: #8e9caf;
+
+  font-size: 7px;
+}
+
+
+/* =========================================================
+   ROLE
+========================================================= */
+
+.userRoleBadge {
+  display: inline-block;
+
+  padding: 4px 7px;
+
+  border-radius: 20px;
+
+  color: #3970cc;
+
+  background: #edf3ff;
+
+  font-size: 7px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   ASSIGNED ADMIN
+========================================================= */
+
+.assignedAdmin {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  color: #536a8d;
+
+  font-size: 8px;
+}
+
+.assignedAdmin i {
+  width: 5px;
+  height: 5px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+}
+
+.assignedAdmin i.green {
+  background: #29b879;
+}
+
+.assignedAdmin i.purple {
+  background: #9364df;
+}
+
+.assignedAdmin i.blue {
+  background: #3571dc;
+}
+
+
+/* =========================================================
+   ROW ACTION
+========================================================= */
+
+.rowAction {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid #e1e7ef;
+
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  color: #73839a;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.pagination {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 6px;
+
+  padding: 13px;
+}
+
+.pagination button {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid #e1e7ef;
+
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  color: #53698d;
+
+  font-size: 8px;
+
+  cursor: pointer;
+}
+
+.pagination .activePage {
+  color: #ffffff;
+
+  background: #3973dc;
+
+  border-color: #3973dc;
+
+  box-shadow:
+    0 4px 9px rgba(57, 115, 220, 0.2);
+}
+
+
+/* =========================================================
+   MANAGE CARD
+========================================================= */
+
+.manageCard {
+  overflow: hidden;
+}
+
+.manageHeader {
+  padding: 18px 16px 12px;
+}
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+.manageTabs {
+  display: flex;
+
+  gap: 25px;
+
+  padding: 0 16px;
+
+  border-bottom: 1px solid #e6ebf2;
+}
+
+.manageTabs button {
+  position: relative;
+
+  padding: 8px 0 10px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #8290a5;
+
+  font-size: 8px;
+
+  cursor: pointer;
+}
+
+.manageTabs button.active {
+  color: #2562ca;
+
+  font-weight: 700;
+}
+
+.manageTabs button.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -1px;
+
+  height: 2px;
+
+  background: #2969da;
+
+  border-radius: 2px 2px 0 0;
+}
+
+
+/* =========================================================
+   ASSIGN FORM
+========================================================= */
+
+.assignContent {
+  padding: 16px;
+}
+
+.assignContent h3 {
+  margin: 0 0 15px;
+
+  color: #1c345f;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+
+.assignContent label {
+  display: block;
+
+  margin: 11px 0 6px;
+
+  color: #63748f;
+
+  font-size: 8px;
+
+  font-weight: 600;
+}
+
+
+.assignContent select {
+  width: 100%;
+
+  height: 32px;
+
+  padding: 0 9px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #dfe6f0;
+
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  color: #7c8aa0;
+
+  outline: none;
+
+  font-size: 8px;
+
+  cursor: pointer;
+}
+
+.assignContent select:focus {
+  border-color: #5081dc;
+
+  box-shadow:
+    0 0 0 3px rgba(80, 129, 220, 0.08);
+}
+
+
+/* =========================================================
+   ASSIGN BUTTON
+========================================================= */
+
+.assignButton {
+  width: 100%;
+
+  height: 32px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  margin-top: 14px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: linear-gradient(
+    135deg,
+    #1959d3,
+    #286ee8
+  );
+
+  color: #ffffff;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 12px rgba(31, 92, 212, 0.18);
+
+  transition: 0.2s ease;
+}
+
+.assignButton:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 16px rgba(31, 92, 212, 0.25);
+}
+
+
+/* =========================================================
+   ASSIGN INFO
+========================================================= */
+
+.assignInformation {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 8px;
+
+  margin-top: 14px;
+
+  padding: 12px;
+
+  border-radius: 6px;
+
+  background: #f7f9fd;
+
+  color: #8492a7;
+
+  font-size: 8px;
+
+  line-height: 1.5;
+}
+
+.assignInformation svg {
+  flex-shrink: 0;
+
+  margin-top: 1px;
+
+  color: #3973d5;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .managementGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .adminChain {
+    flex-wrap: wrap;
+  }
+
+  .adminNode {
+    min-width: 2100px;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .structureHeader {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 13px;
+  }
+
+  .structureActions {
+    width: 100%;
+  }
+
+  .secondaryButton,
+  .primaryButton {
+    flex: 1;
+  }
+
+  .adminChain {
+    flex-direction: column;
+  }
+
+  .adminNode {
+    width: 100%;
+  }
+
+  .chainArrow {
+    transform: rotate(90deg);
+  }
+
+  .usersTools {
+    grid-template-columns: 1fr;
+
+  }
+
+  .tableHeader {
+    display: none;
+  }
+
+  .userTableRow {
+    grid-template-columns: 1fr;
+
+    gap: 7px;
+
+    padding: 12px 16px;
+  }
+
+  .rowAction {
+    display: none;
+  }
+
+}

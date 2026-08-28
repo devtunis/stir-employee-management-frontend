@@ -3,7 +3,7 @@
 
 import{ useEffect, useState } from "react";
 import "./Login.css";
-import axios from "../../axiosClient/axios.js";
+import axios from  "../axiosClient/axios.js" 
 import Lodaer from "../Component/Lodaer";
 import { useNavigate } from "react-router-dom";
 import { useStoreauth } from "../useStore/UseStoreContext.jsx";

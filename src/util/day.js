@@ -9,8 +9,5 @@ export function daysBetween(date1, date2) {
 
   return Math.floor(difference / (1000 * 60 * 60 * 24));
 }
-
-console.log(daysBetween("2026/08/27", "2026/08/28"));
-
-
-// console.log(daysBetween("12/10/2003", "12/10/2004"));
+ 
+ 

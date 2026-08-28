@@ -1,6 +1,6 @@
 import   { useState } from "react";
 import "./Resigter.css";
-import axios from "../../axiosClient/axios.js"
+import axios from "../axiosClient/axios.js"
 import { useNavigate } from "react-router-dom";
 import Lodaer from "../Component/Lodaer";
 

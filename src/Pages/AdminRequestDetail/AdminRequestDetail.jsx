@@ -18,7 +18,7 @@ import {
 
 import "./AdminRequestDetail.css";
 import { useEffect } from "react";
-import axios from "../../../axiosClient/axios";
+import axios from "../../axiosClient/axios.js"
 import SimpleLoader from "../../Component/SimpleLoader";
 import { useState } from "react";
 import { useStoreauth } from "../../useStore/UseStoreContext";

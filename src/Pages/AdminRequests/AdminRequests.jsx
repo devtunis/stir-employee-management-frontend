@@ -20,7 +20,7 @@ import "./AdminRequests.css";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
-import axios from "../../../axiosClient/axios.js";
+import axios from "../../axiosClient/axios.js"
 import AdminRequestDetail from "../AdminRequestDetail/AdminRequestDetail";
 import { daysBetween } from "../../util/day.js";
 
