@@ -15,6 +15,7 @@ import {
   User,
   UserCheck,
   Award,
+  Newspaper,
 } from "lucide-react";
 
 import "./Dashboard.css";
@@ -398,6 +399,17 @@ function Dashboard() {
         </div>
 
 
+      <div onClick={()=>Nav(`/news/organization/${url.roomId}`)} >  
+          <SidebarItem 
+                  
+                    icon={<Newspaper size={19} />}
+                    
+                  >  
+                  <h3 > News </h3>
+                  </SidebarItem>
+        </div>
+
+
         <nav className="sidebar-navigation">
 
           <SidebarItem
@@ -412,7 +424,7 @@ function Dashboard() {
      {
       owner.includes("admin")  && <>
 
- <div onClick={()=>Nav(`/organizations/admin/${url.roomId}`)} >  
+      <div onClick={()=>Nav(`/organizations/admin/${url.roomId}`)} >  
           <SidebarItem 
                   
                     icon={<CalendarDays size={19} />}
