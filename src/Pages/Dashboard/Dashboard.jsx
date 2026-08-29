@@ -4,20 +4,17 @@ import {
   ChevronDown,
   Home,
   CalendarDays,
-  PlusCircle,
   LogOut,
   Building2,
-  Clock3,
-  CircleCheck,
   Wallet,
   Send,
-  Calendar,
   Phone,
   Mail,
   ArrowRight,
   CheckLineIcon,
   User,
   UserCheck,
+  Award,
 } from "lucide-react";
 
 import "./Dashboard.css";
@@ -26,36 +23,27 @@ import { useStoreauth } from "../../useStore/UseStoreContext";
 import { useEffect, useState } from "react";
 import axios from "../../axiosClient/axios.js"
 import SimpleLoader from "../../Component/SimpleLoader.jsx";
-import STIRLoader from "../../Component/StirLoader.jsx";
+ 
 import Lodaer from "../../Component/Lodaer.jsx";
 import { ToastContainer, toast } from 'react-toastify';
 
 
-import { DayPicker } from "@daypicker/react";
+ 
 import "@daypicker/react/style.css";
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+ 
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import RefusedLeaveModal from "../../Component/RefusedLeaveModal.jsx";
 import { daysBetween } from "../../util/day.js";
 
-import { useCallback } from "react";
-import {
-  ReactFlow,
-  MiniMap,
-  Controls,
-  Background,
-  useNodesState,
-  useEdgesState,
-  addEdge,
-} from "@xyflow/react";
+ 
+ 
 
-import "@xyflow/react/dist/style.css";
+ 
 import AdminStructure from "../AdminStructure/AdminStructure.jsx";
-import NewLoader from "../../Component/NewLoader.jsx";
-
-
+import CertifConge from "../../CertifConge/CertifConge.jsx";
+ 
 
  
 function StatCard({
@@ -222,7 +210,7 @@ function Dashboard() {
 
               )
        if(ResData.status==200){
-        console.log(ResData.data)
+        
         notify3()
        }
       }
@@ -230,11 +218,11 @@ function Dashboard() {
       
   
       catch(err){
-        console.log(err.response)
+      
         if(err?.response?.status==409)
           
         {
-          console.log("their conflit")
+         
           notify()
         }
       }
@@ -256,7 +244,7 @@ function Dashboard() {
       
       if(response.data.res.includes("admin") ||response.data.res=="user"){
         setDataUser(response.data.data)
-        console.log(response.data.data,'response data')
+      
         
       }
      
@@ -300,8 +288,7 @@ function Dashboard() {
           "repoId":idroom,
           "cinUser":id
       })
-        console.log(reponse.data.result.requests
-)
+ 
          
         if(reponse.status ==200)
         {
@@ -318,10 +305,11 @@ function Dashboard() {
 
      }
 
+     
      const [currentview,setCurerntView] = useState({})
      const HandelShowDetailsRequestConge = (request)=>{
       
-      if(request.reponse==="yes") return;
+      // if(request.reponse==="yes") return;
        
       setCurerntView(request)
       setShowM(true)
@@ -330,6 +318,7 @@ function Dashboard() {
      }
 
 
+     const [showCertifConge,setshowCertifConge] = useState(false)
   
   return (
     <div className="dashboard">
@@ -434,11 +423,11 @@ function Dashboard() {
         </div>
 
               
-      
+      {/*  onClick={()=>Nav(`/attestation/${url.roomId}`)}  */}
       </>
      }  
 
-     {(owner=="user" || owner.includes("admin"))  && <> <SidebarItem  icon={<PlusCircle size={19} />} >  Envoyer demande </SidebarItem> </>    }
+     {(owner=="user" || owner.includes("admin"))  && <> <SidebarItem  icon={<Award   size={19} />} > <span  onClick={()=>Nav(`/attestation/${url.roomId}`)} > Obtenir une attestation de présence</span>   </SidebarItem> </>    }
      {owner=="owner"   && <> <SidebarItem  icon={<User size={19} />} >  <h2 onClick={()=>{
       __setDashAdmin((p) => {
         const newValue = !p;
@@ -561,10 +550,13 @@ function Dashboard() {
         : 
         <>
  {/* ================= user | admin ================= */}
-
+  
+    {
+       showCertifConge &&   <CertifConge data={currentview} ff2={()=>setshowCertifConge(false)}/>
+    }
 
 {
-  showM && <RefusedLeaveModal ffhelp={()=>setShowM(false)} modelData={currentview}/>
+  showM && <RefusedLeaveModal f3help={()=>setshowCertifConge(true)} ffhelp={()=>setShowM(false)} modelData={currentview}/>
 }
 
 
@@ -624,7 +616,7 @@ function Dashboard() {
           />
 
         </section>
-
+ 
 
         {/* ================= LOWER CONTENT ================= */}
         <section className="dashboard-grid">
@@ -645,7 +637,7 @@ function Dashboard() {
 
               </div>
 
-
+     
               <div className="table-wrapper">
 
                 <table>
@@ -656,7 +648,7 @@ function Dashboard() {
                       <th>Période</th>
                       <th>Type</th>
                       <th>Statut</th>
-                      
+                    
                     </tr>
                   </thead>
 
@@ -672,7 +664,7 @@ function Dashboard() {
 
                         <td style={{fontSize:"10px"}}>{request.typeConge}</td>
 
-                        <td >
+                        <td style={{ display:"flex",alignItems:"center",width:"100%",gap:"10px"}} > 
 
                           <span
                           
@@ -680,8 +672,11 @@ function Dashboard() {
                             className={`status ${request.reponse=="yes"?"approved":"refure"}`}
                           >
                             
-                            {request.reponse=="yes"?<p>Approuvé</p>:<p onPointerEnter={()=>HandelShowDetailsRequestConge(request)}>Refusé</p>}
+                            <p onClick={()=>HandelShowDetailsRequestConge(request)}>{request.reponse ? "Approuvé":"Refusé"}</p>
+                            {/* {request.reponse=="yes"?<p>Approuvé</p>:<p onPointerEnter={()=>HandelShowDetailsRequestConge(request)}>Refusé</p>} */}
+                            
                           </span>
+                         
                         </td>
                        
                       </tr>

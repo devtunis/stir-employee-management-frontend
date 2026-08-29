@@ -91,7 +91,7 @@ const AdminManagement = ({listMember,listAdmins}) => {
       return 
     }
      
-    console.log(data.data.LeaksMembers,"<==learks members")
+ 
 
       setad(data.data.LeaksMembers)
       setlmb(data.data.res.members)

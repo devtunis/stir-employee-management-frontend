@@ -100,7 +100,7 @@ function AdminRequestDetail({fhelp , data,f2help ,currentrole}) {
           "roomId":data.roomId,
         "cin":data.cin,
         "answer":true,
-        "reason":data.reason,
+        "reason":currentrole,
         "nbjr": daysBetween(data.debut,data.fin),
         "nom":data.nom,
         "debut":data.debut,
@@ -112,7 +112,7 @@ function AdminRequestDetail({fhelp , data,f2help ,currentrole}) {
 
         }
       )
-      console.log(ResponseApproveRequest)
+       
       f2help(ResponseApproveRequest.data.res)
       fhelp()
     }catch(err){

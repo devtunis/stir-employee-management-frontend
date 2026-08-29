@@ -29,7 +29,7 @@ const Resigter = () => {
           })
 
         if(ReponseData){
-            console.log(ReponseData.data)
+          
             Nav("/login")
         }
     }catch(err){
@@ -41,7 +41,7 @@ const Resigter = () => {
       SetLoading(false)
     }
 
-    console.log(state,"<== this the data")
+    
     
   }
   return (

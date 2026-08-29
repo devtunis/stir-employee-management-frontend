@@ -1,40 +1,114 @@
+ 
+import { useEffect, useRef, useState } from "react";
 import "./Certificate.css";
-// import refineryImage from "./assets/refinery.png";
+import { use } from "../axiosClient/usehook";
+import { useParams } from "react-router-dom";
+ 
 
 export default function Certificate() {
+
+
+ const [showAttesation,SetAttesation] = useState(false)
+ const [data,setdata] = useState({})
+const url = useParams()
+ 
+ const PreparePayloadForAttesation = async()=>{
+  const {err,data} = await use("/ogranization/attesationDePresence/v1","post",{
+  "roomId":url.roomid
+})
+if(err!=null){
+  console.log(err)
+  return
+}
+ setdata(data.data)
+ SetAttesation(true)
+ }
+
+
+  const downloadCertificate = () => {
+    window.print();
+  };
+
+ const time =  new Date()
+ const customTime =`${ time.getFullYear() }/${ time.getMonth()}/${time.getDay()}`
   return (
-    <div className="certificate-page">
+
+    <> 
+    {
+      showAttesation ?
+     
+      
+       <div className="certificate-page">
+
+   
+     
+<div className="certificate-actions">
+
+  <button
+    className="download-button"
+    onClick={()=>downloadCertificate()}
+  >
+
+    <span className="button-decoration left"></span>
+
+    <span className="download-icon">
+      ↓
+    </span>
+
+    <span className="download-button-text">
+      Télécharger l'attestation
+    </span>
+
+    <span className="button-decoration right"></span>
+
+  </button>
+
+</div>
+ 
+
+
+      {/* CERTIFICATE */}
       <div className="certificate">
 
         <div className="certificate-inner">
 
-          {/* Decorative corners */}
-          <div className="corner corner-tl" />
-          <div className="corner corner-tr" />
-          <div className="corner corner-bl" />
-          <div className="corner corner-br" />
+          <div className="corner corner-tl"></div>
+          <div className="corner corner-tr"></div>
+          <div className="corner corner-bl"></div>
+          <div className="corner corner-br"></div>
 
-          {/* HEADER IMAGE */}
+
+          {/* HEADER */}
           <section
             className="certificate-hero"
-            style={{ backgroundImage: `url(/homePictuer/refinery.jpg)` }}
+            style={{
+              backgroundImage:
+                "url('/homePictuer/refinery.jpg')",
+            }}
           >
-            <div className="hero-overlay" />
+
+            <div className="hero-overlay"></div>
 
             <div className="hero-content">
+
               <div>
+
                 <div className="hero-label">
                   INDUSTRIAL EXCELLENCE • PRESENCE RECORD
                 </div>
 
                 <div className="hero-title">
-                  OFFICIAL ATTENDANCE TEMPLATE
+                  OFFICIAL ATTENDANCE
                 </div>
+
               </div>
+
             </div>
+
           </section>
 
-          {/* MAIN CONTENT */}
+
+          {/* CONTENT */}
           <main className="certificate-content">
 
             <div className="ornament">
@@ -42,93 +116,109 @@ export default function Certificate() {
             </div>
 
             <div className="subtitle">
-              DOCUMENT DE PRÉSENTATION • MODÈLE DE CERTIFICAT
+              DOCUMENT OFFICIEL
             </div>
 
             <h1>
-              Certificat de Présence
+              Attestation de Présence
             </h1>
 
-            <div className="gold-line" />
+            <div className="gold-line"></div>
 
             <p className="intro">
               Nous avons l’honneur de certifier que
             </p>
 
             <div className="participant-name">
-              [Nom et Prénom du Participant]
+              Mme/M. {` [${data.nom} ${data.prenom}]`}
             </div>
 
             <p className="body-text">
-              a participé à{" "}
-              <span className="event-name">
-                [Nom de l’Événement / Formation]
-              </span>
-              , organisé du{" "}
-              <strong>[Date début]</strong>{" "}
-              au{" "}
-              <strong>[Date fin]</strong>
-              , à{" "}
-              <strong>[Lieu]</strong>.
+
+              a été régulièrement présent(e) au sein de{" "}
+
+              <strong>
+                [{data.nameOrg}]
+              </strong>
+
+             
+
             </p>
 
             <p className="body-text">
-              Le présent document atteste de la participation du titulaire
-              à titre de modèle administratif et peut être complété par
-              l’organisme responsable avec ses informations vérifiables.
+
+              La présente attestation est délivrée à l'intéressé(e)
+              pour servir et valoir ce que de droit.
+
             </p>
 
-            {/* INFORMATION ROW */}
+
+            {/* INFORMATION */}
             <div className="certificate-meta">
 
               <div className="meta-item">
+
                 <span className="meta-label">
                   RÉFÉRENCE
                 </span>
 
                 <span className="meta-value">
-                  [CERT-2026-XXXX]
+                  CERT-2026-{url.roomid}
                 </span>
+
               </div>
 
-              <div className="meta-divider" />
+
+              <div className="meta-divider"></div>
+
 
               <div className="meta-item">
+
                 <span className="meta-label">
                   LIEU
                 </span>
 
                 <span className="meta-value">
-                  [Ville / Site]
+                   tunis / bizerte 
                 </span>
+
               </div>
 
-              <div className="meta-divider" />
+
+              <div className="meta-divider"></div>
+
 
               <div className="meta-item">
+
                 <span className="meta-label">
                   ÉMIS LE
                 </span>
 
                 <span className="meta-value">
-                  [JJ / MM / AAAA]
+                 {customTime}
+                  
                 </span>
+
               </div>
 
             </div>
+
 
             {/* FOOTER */}
             <div className="certificate-footer">
 
               <div className="date-block">
+
                 <span>
-                  <strong>Fait à</strong> [Ville]
+                  <strong>Fait à</strong>  Bizerte
                 </span>
 
                 <span>
-                  <strong>Le</strong> [Date]
+                  <strong>Le</strong>  {customTime}
                 </span>
+
               </div>
+
 
               {/* SIGNATURE */}
               <div className="signature-block">
@@ -137,21 +227,17 @@ export default function Certificate() {
                   Signature autorisée
                 </div>
 
-                <div className="signature-line" />
-
-                <strong>
-                  [Nom du Signataire]
-                </strong>
-
-                <small>
-                  [Fonction / Qualité]
-                </small>
+                <div className="signature-line">
+                  <img src="/sig/sig.png"/>
+                </div>
+ 
 
               </div>
 
             </div>
 
           </main>
+
 
           {/* SEAL */}
           <div className="certificate-seal">
@@ -167,28 +253,44 @@ export default function Certificate() {
               </div>
 
               <div className="seal-title">
-                TEMPLATE
+                OFFICIEL
               </div>
 
               <div className="seal-small">
-                ✦ SPECIMEN ✦
+                ✦ VALIDATION ✦
               </div>
 
             </div>
 
           </div>
 
+
           {/* WATERMARK */}
           <div className="certificate-watermark">
             SPECIMEN
           </div>
 
+
           <div className="certificate-notice">
-            MODÈLE DE PRÉSENTATION • À COMPLÉTER ET VALIDER PAR L’ORGANISME ÉMETTEUR
+            DOCUMENT OFFICIEL • À COMPLÉTER ET VALIDER PAR L’ORGANISME ÉMETTEUR
           </div>
 
         </div>
+
       </div>
+
     </div>
+
+
+      :  
+      <div className="showAttesation"  >
+        <button onClick={()=>PreparePayloadForAttesation()}>show Attesation</button>
+      </div>
+    }
+
+   
+     </>
+
   );
 }
+ 

@@ -54,7 +54,7 @@ export default function CreateOrganization() {
     "nameOrganization" :name,
     "activity":activity
     })
-    console.log(response)
+ 
     setLoading(false)
     if(response.status===200){
       Nav("/organizations")
@@ -107,7 +107,7 @@ export default function CreateOrganization() {
           <button
             type="button"
             className="close-create-modal"
-            
+            onClick={()=>Nav("/organizations")}
           >
             <X size={19} />
           </button>

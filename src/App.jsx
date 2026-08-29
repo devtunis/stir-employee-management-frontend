@@ -1,38 +1,51 @@
- 
- import {Routes,Route} from "react-router-dom" 
-import Login from './auth/Login'
-import Resigter from './auth/Resigter'
-import Home from './Pages/Home'
-import Dashboard from './Pages/Dashboard/Dashboard'
-import AdminRequests from './Pages/AdminRequests/AdminRequests'
-import AdminRequestDetail from './Pages/AdminRequestDetail/AdminRequestDetail'
-import CreateOrganization from './Pages/createOrganization.jsx/CreateOrganization'
-import Certificate from "./Certifacte/Certificate"
-import   CalendarComp from "./Component/CalendarComp"
- 
- 
-// hey chat do react.lazy laoading and wrap all  it with suposne with this componet <STIRLoader/>
- const App = () => {
-   return (
-     <>
-      
-      <Routes>
-         <Route path='/login' element={<Login/>}/>
-         <Route path='/resigter' element={<Resigter/>}/>
-          <Route path='/organizations' element={<Home/>}/>
-          <Route path='/organizations/createOrganization' element={<CreateOrganization/>}/> 
-          <Route path='/organizations/:roomId' element={<Dashboard/>}/>
-                  
-     
-         <Route path='/organizations/admin/:roomId' element={<AdminRequests/>}/>
-         
-           <Route path='/test' element={<Certificate/>}/>
+import { lazy, Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
 
-        <Route path='/test2' element={<CalendarComp/>}/>
-        
-      </Routes>
-     </>
-   )
- }
  
- export default App
+const Login = lazy(() => import("./auth/Login"));
+const Resigter = lazy(() => import("./auth/Resigter"));
+const Home = lazy(() => import("./Pages/Home"));
+const Dashboard = lazy(() => import("./Pages/Dashboard/Dashboard"));
+const AdminRequests = lazy(() => import("./Pages/AdminRequests/AdminRequests"));
+ 
+const CreateOrganization = lazy(() =>
+  import("./Pages/createOrganization.jsx/CreateOrganization")
+);
+const Certificate = lazy(() => import("./Certifacte/Certificate"));
+const CalendarComp = lazy(() => import("./Component/CalendarComp"));
+const CeritfacteConge = lazy(()=>import("./CertifConge/CertifConge"))
+import STIRLoader from "./Component/StirLoader";
+
+const App = () => {
+  return (
+    <>
+      <Suspense fallback={<STIRLoader />}>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+
+          <Route path="/resigter" element={<Resigter />} />
+
+          <Route path="/organizations" element={<Home />} />
+
+          <Route
+            path="/organizations/createOrganization"
+            element={<CreateOrganization />}
+          />
+
+          <Route path="/organizations/:roomId" element={<Dashboard />} />
+
+          <Route
+            path="/organizations/admin/:roomId"
+            element={<AdminRequests />}
+          />
+
+          <Route path="/attestation/:roomid" element={<Certificate />} />
+
+          <Route path="/test2" element={<CeritfacteConge />} />
+        </Routes>
+      </Suspense>
+    </>
+  );
+};
+
+export default App;

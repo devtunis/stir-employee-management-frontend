@@ -3,7 +3,8 @@ import "./home.css";
 import { useNavigate } from "react-router-dom";
 import { useStoreauth } from "../useStore/UseStoreContext";
 import axios from "../axiosClient/axios.js";
-import { Building2, LogOut, User } from "lucide-react";
+import { Building2, Building2Icon, LogOut, User } from "lucide-react";
+import JoinRoom from "../JoinRoom/JoinRoom.jsx";
 
 const organizations = [
   { id: "ORG-0001", name: "Raffinage Nord", owner: "Ahmed Ben Ali", date: "12/03/2023" },
@@ -81,8 +82,8 @@ const Social = ({ children }) => <span className="social-dot">{children}</span>;
 const Home = () => {
   const {state}  = useStoreauth()
   const [query, setQuery] = useState("");
-  const [mobileOpen, setMobileOpen] = useState(false);
-
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [showJoinRoom,SetshowJoinRoom]= useState(false)
  
 
   const Nav = useNavigate()
@@ -94,7 +95,7 @@ const Home = () => {
         if(state.cin){
            const LoadigOrgaizations = async()=>{
             const Response = await axios("/seefollowOrg/v1")
-            console.log(Response.data)
+            
             setOrganisations(Response.data.reverse())
            }
            LoadigOrgaizations()
@@ -106,6 +107,12 @@ const Home = () => {
   const filtered = Organisations?.filter((org) => org.nameOrganization.toLowerCase().includes(query.toLowerCase()));
   
   return (
+
+    <> 
+    {
+      showJoinRoom &&  <JoinRoom setshowfalse={()=>SetshowJoinRoom(false)}/>
+    }
+   
     <div className="sitr-page">
       <header className="top-header">
         <div className="header-inner">
@@ -142,7 +149,7 @@ const Home = () => {
             <span >École du Feu</span>
             <span  >Laboratoire</span>
             <span  >Partenaires</span>
-            <span  >Carrière</span>
+            <span  >Attestation de présence.</span>
             <span  onClick={()=>Nav("/login")} ><LogOut size={15}/> déconnexion</span>
            
           </div>
@@ -186,10 +193,18 @@ const Home = () => {
                 />
                 <Icon name="search" size={16} />
               </label>
+
+                 <button className="new-button" onClick={()=>SetshowJoinRoom((p)=>!p)}>
+                <Building2Icon name="plus" size={18} />
+                Join Organization
+              </button>
+
+
               <button className="new-button" onClick={()=>Nav("/organizations/createOrganization")}>
                 <Icon name="plus" size={18} />
                 Nouvelle department
               </button>
+            
             </div>
           </div>
 
@@ -212,6 +227,9 @@ const Home = () => {
                   Voir les détails
                   <Icon name="arrow" size={16} />
                 </button>
+
+
+                
               </article>
             ))}
           </div>
@@ -222,6 +240,8 @@ const Home = () => {
         </section>
       </main>
     </div>
+
+      </>
   );
 };
 
