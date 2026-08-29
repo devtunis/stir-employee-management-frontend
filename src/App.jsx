@@ -14,7 +14,9 @@ const CreateOrganization = lazy(() =>
 const Certificate = lazy(() => import("./Certifacte/Certificate"));
 const CalendarComp = lazy(() => import("./Component/CalendarComp"));
 const CeritfacteConge = lazy(()=>import("./CertifConge/CertifConge"))
+const StirHome  = lazy(()=>import("./StirHome/StirHome"))
 import STIRLoader from "./Component/StirLoader";
+import News from "./New/News";
 
 const App = () => {
   return (
@@ -41,7 +43,9 @@ const App = () => {
 
           <Route path="/attestation/:roomid" element={<Certificate />} />
 
-          <Route path="/test2" element={<CeritfacteConge />} />
+          {/* <Route path="/test2" element={<News />} /> */}
+
+           <Route path="/news/organization/:roomid" element={<News />} />
         </Routes>
       </Suspense>
     </>

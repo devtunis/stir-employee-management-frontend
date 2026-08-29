@@ -1,0 +1,1054 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+
+  background: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.stir-page {
+  width: 100%;
+  min-height: 100vh;
+
+  background: #fff;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+  width: 100%;
+  height: 61px;
+
+  background: #ffffff;
+}
+
+.header-inner {
+  width: 585px;
+  height: 61px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* =========================================================
+   STIR LOGO
+========================================================= */
+
+.stir-logo {
+  width: 80px;
+  height: 57px;
+
+  position: relative;
+
+  margin-left: 0;
+}
+
+
+/* red symbol */
+
+.logo-symbol {
+  position: absolute;
+
+  top: 4px;
+  left: 30px;
+
+  width: 20px;
+  height: 15px;
+}
+
+.logo-symbol span:first-child {
+  position: absolute;
+
+  width: 12px;
+  height: 5px;
+
+  top: 0;
+  left: 0;
+
+  background: #ed1c24;
+}
+
+.logo-symbol span:last-child {
+  position: absolute;
+
+  width: 12px;
+  height: 5px;
+
+  top: 6px;
+  left: 4px;
+
+  background: #ed1c24;
+}
+
+
+/* blue logo */
+
+.logo-name {
+  position: absolute;
+
+  left: 5px;
+  bottom: 5px;
+
+  color: #101e8c;
+
+  font-family: Arial Black, Arial, sans-serif;
+
+  font-size: 31px;
+  font-weight: 900;
+
+  letter-spacing: -5px;
+
+  line-height: 30px;
+}
+
+
+/* =========================================================
+   SOCIAL ICONS
+========================================================= */
+
+.social-icons {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  margin-right: 137px;
+}
+
+.social {
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #5068a0;
+
+  color: #fff;
+
+  font-size: 8px;
+  font-weight: bold;
+
+  line-height: 16px;
+}
+
+.social.email {
+  background: #397fbc;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.main-nav {
+  width: 100%;
+  height: 28px;
+
+  background: #192d78;
+}
+
+.nav-inner {
+  width: 665px;
+  height: 28px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+}
+
+.nav-inner a {
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 8px;
+  font-weight: normal;
+
+  white-space: nowrap;
+}
+
+.nav-inner a:hover {
+  color: #d9d9d9;
+}
+
+.search {
+  width: 82px;
+  height: 13px;
+
+  border: 1px solid #aaa;
+
+  outline: none;
+
+  padding: 0 4px;
+
+  background: #ffffff;
+
+  color: #333;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 7px;
+}
+
+.search::placeholder {
+  color: #777;
+}
+
+
+/* =========================================================
+   REFINERY HERO
+========================================================= */
+
+.refinery-hero {
+  width: 100%;
+  height: 203px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #d5e7ef;
+}
+
+
+/* REAL IMAGE */
+
+.refinery-image {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  /*
+    This keeps the refinery image filling
+    the entire banner.
+  */
+
+  object-fit: cover;
+
+  object-position: center center;
+
+  display: block;
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.hero-title {
+  position: absolute;
+
+  left: 50%;
+  top: 64%;
+
+  transform: translate(-50%, -50%);
+
+  width: 600px;
+
+  padding: 7px 14px;
+
+  background: rgba(255, 255, 255, 0.88);
+
+  color: #173675;
+
+  font-size: 19px;
+
+  font-weight: bold;
+
+  line-height: 24px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main-container {
+  width: 570px;
+
+  margin: 0 auto;
+
+  position: relative;
+
+  padding-top: 27px;
+}
+
+
+/* =========================================================
+   BLUE ARROW
+========================================================= */
+
+.down-arrow {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 19px;
+  height: 19px;
+
+  border-radius: 50%;
+
+  background: #49a5ce;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.down-arrow span {
+  margin-top: -3px;
+}
+
+
+/* =========================================================
+   ANNOUNCEMENT
+========================================================= */
+
+.announcement {
+  width: 540px;
+  min-height: 39px;
+
+  margin: 0 auto;
+
+  padding: 5px 10px;
+
+  background: #ffffff;
+
+  border: 1px solid #bdbdbd;
+
+  box-shadow:
+    3px 4px 5px rgba(0, 0, 0, 0.35);
+
+  text-align: center;
+
+  color: #101010;
+
+  font-size: 9px;
+
+  font-weight: bold;
+
+  line-height: 13px;
+}
+
+.announcement-arabic {
+  direction: rtl;
+
+  white-space: nowrap;
+}
+
+.announcement-arabic span {
+  color: red;
+}
+
+.announcement-arabic strong {
+  font-weight: bold;
+}
+
+
+/* =========================================================
+   ROUND LINKS
+========================================================= */
+
+.round-links {
+  width: 430px;
+
+  margin: 17px auto 20px;
+
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.round-link {
+  width: 90px;
+
+  text-align: center;
+}
+
+
+/* circle */
+
+.round-icon {
+  width: 53px;
+  height: 53px;
+
+  margin: 0 auto;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+}
+
+
+/* colors */
+
+.round-icon.yellow {
+  background: #efb200;
+}
+
+.round-icon.red {
+  background: #da4747;
+}
+
+.round-icon.blue {
+  background: #4b90ed;
+}
+
+
+/* icons */
+
+.basket-icon {
+  font-size: 27px;
+  line-height: 1;
+}
+
+.screen-icon {
+  font-size: 27px;
+  line-height: 1;
+}
+
+.pencil-icon {
+  font-size: 29px;
+  line-height: 1;
+
+  transform: rotate(-8deg);
+}
+
+
+/* labels */
+
+.round-label {
+  margin-top: 5px;
+
+  color: #192f78;
+
+  font-size: 9px;
+
+  font-weight: bold;
+
+  white-space: nowrap;
+}
+
+.fire-label {
+  color: red;
+}
+
+
+/* =========================================================
+   FEATURE ROW
+========================================================= */
+
+.feature-row {
+  width: 560px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  column-gap: 14px;
+}
+
+
+/* =========================================================
+   FEATURE CARD
+========================================================= */
+
+.feature-card {
+  width: 176px;
+
+  min-height: 174px;
+}
+
+
+/* image wrapper */
+
+.feature-image {
+  width: 176px;
+  height: 132px;
+
+  padding: 3px;
+
+  border: 1px solid #d3d3d3;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+
+/* actual image */
+
+.feature-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* program image */
+
+.feature-card:nth-child(2)
+.feature-image img {
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   FEATURE TEXT
+========================================================= */
+
+.feature-name {
+  margin-top: 2px;
+
+  color: #a90019;
+
+  font-size: 9px;
+
+  font-weight: bold;
+
+  line-height: 11px;
+}
+
+.feature-description {
+  width: 166px;
+
+  margin-top: 1px;
+
+  color: #777777;
+
+  font-size: 7px;
+
+  line-height: 9px;
+}
+
+.detail {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #172f75;
+
+  font-size: 8px;
+
+  font-weight: bold;
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   CONTENT SECTION
+========================================================= */
+
+.content-section {
+  width: 570px;
+
+  margin-top: 7px;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.section-title {
+  width: 570px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+
+  padding-left: 7px;
+
+  background: #07194d;
+
+  color: #ffffff;
+
+  font-size: 8px;
+
+  font-weight: bold;
+}
+
+
+/* =========================================================
+   CERTIFICATIONS
+========================================================= */
+
+.certification-row {
+  width: 570px;
+
+  padding: 5px 5px 0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 5px;
+}
+
+
+/* certificate card */
+
+.certificate-card {
+  width: 180px;
+  height: 94px;
+
+  padding: 4px;
+
+  border: 1px solid #142f77;
+
+  display: flex;
+
+  overflow: hidden;
+
+  background: #ffffff;
+}
+
+
+/* certificate image */
+
+.certificate-picture {
+  position: relative;
+
+  width: 78px;
+  height: 82px;
+
+  flex-shrink: 0;
+
+  border: 1px solid #d4d4d4;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #eeeeee 100%
+    );
+
+  text-align: center;
+
+  padding-top: 5px;
+}
+
+.certificate-word {
+  color: #bda25c;
+
+  font-family: Georgia, serif;
+
+  font-size: 8px;
+
+  margin-bottom: 7px;
+}
+
+.certificate-main {
+  color: #526d91;
+
+  font-size: 8px;
+
+  font-weight: bold;
+
+  line-height: 10px;
+}
+
+.certificate-version {
+  margin-top: 3px;
+
+  color: #666;
+
+  font-size: 6px;
+}
+
+
+/* certificate circle */
+
+.certificate-circle {
+  position: absolute;
+
+  left: 30px;
+  bottom: 7px;
+
+  width: 17px;
+  height: 17px;
+
+  border: 1px solid #6e91a7;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #527c92;
+
+  font-size: 9px;
+}
+
+
+/* Arabic certificate */
+
+.arabic-certificate {
+  direction: rtl;
+
+  padding-top: 18px;
+
+  color: #555;
+
+  font-size: 9px;
+}
+
+
+/* certificate information */
+
+.certificate-info {
+  padding-left: 6px;
+
+  color: #435f89;
+
+  font-size: 7px;
+
+  line-height: 10px;
+}
+
+.certificate-date {
+  color: #e0a800;
+
+  font-weight: bold;
+
+  margin-bottom: 2px;
+}
+
+
+/* =========================================================
+   APPELS D'OFFRES
+========================================================= */
+
+.offers-section {
+  margin-top: 5px;
+}
+
+
+/* offer row */
+
+.offer-row {
+  width: 190px;
+  height: 108px;
+
+  margin-top: 5px;
+
+  padding: 4px;
+
+  border: 1px solid #173077;
+
+  display: flex;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   PDF DOCUMENT
+========================================================= */
+
+.pdf-document {
+  width: 78px;
+  height: 96px;
+
+  flex-shrink: 0;
+
+  position: relative;
+
+  border: 1px solid #c8c8c8;
+
+  background: #f8f8f8;
+}
+
+
+/* PDF red label */
+
+.pdf-top {
+  position: absolute;
+
+  top: 8px;
+  left: 3px;
+
+  width: 60px;
+  height: 22px;
+
+  background: #d10000;
+
+  color: #ffffff;
+
+  text-align: center;
+
+  line-height: 22px;
+
+  font-size: 15px;
+
+  font-weight: bold;
+}
+
+
+/* PDF page */
+
+.pdf-page {
+  position: absolute;
+
+  top: 31px;
+  left: 5px;
+
+  width: 65px;
+  height: 60px;
+
+  background: #ffffff;
+
+  border: 1px solid #ddd;
+}
+
+
+/* folded corner */
+
+.pdf-fold {
+  position: absolute;
+
+  right: 0;
+  top: 0;
+
+  width: 16px;
+  height: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 50%,
+      #ddd 51%
+    );
+}
+
+
+/* PDF symbol */
+
+.pdf-symbol {
+  margin-top: 10px;
+
+  color: #d10000;
+
+  text-align: center;
+
+  font-size: 35px;
+}
+
+
+/* =========================================================
+   OFFER INFORMATION
+========================================================= */
+
+.offer-information {
+  padding-left: 6px;
+
+  color: #4a6088;
+
+  font-size: 7px;
+
+  line-height: 9px;
+}
+
+.offer-date {
+  color: #dda700;
+
+  font-weight: bold;
+
+  margin-bottom: 4px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 750px) {
+
+  .header-inner {
+    width: 95%;
+  }
+
+  .social-icons {
+    margin-right: 0;
+  }
+
+  .nav-inner {
+    width: 100%;
+
+    padding: 0 10px;
+
+    justify-content: flex-start;
+
+    overflow-x: auto;
+  }
+
+  .refinery-hero {
+    height: 190px;
+  }
+
+  .hero-title {
+    width: 90%;
+
+    font-size: 15px;
+
+    white-space: normal;
+  }
+
+  .main-container {
+    width: 100%;
+  }
+
+  .announcement {
+    width: 94%;
+
+    overflow: hidden;
+  }
+
+  .round-links {
+    width: 90%;
+
+    max-width: 430px;
+  }
+
+  .feature-row {
+    width: 94%;
+
+    grid-template-columns:
+      repeat(3, 1fr);
+
+    gap: 8px;
+  }
+
+  .feature-card {
+    width: 100%;
+  }
+
+  .feature-image {
+    width: 100%;
+
+    height: 115px;
+  }
+
+  .feature-description {
+    width: 100%;
+  }
+
+  .content-section {
+    width: 94%;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-title {
+    width: 100%;
+  }
+
+  .certification-row {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+  }
+
+  .certificate-card {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 500px) {
+
+  .feature-row {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card {
+    width: 100%;
+  }
+
+  .feature-image {
+    height: 180px;
+  }
+
+  .round-links {
+    gap: 10px;
+  }
+
+  .round-label {
+    font-size: 8px;
+  }
+}
