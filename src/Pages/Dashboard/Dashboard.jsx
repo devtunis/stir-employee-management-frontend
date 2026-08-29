@@ -53,6 +53,7 @@ import {
 
 import "@xyflow/react/dist/style.css";
 import AdminStructure from "../AdminStructure/AdminStructure.jsx";
+import NewLoader from "../../Component/NewLoader.jsx";
 
 
 
@@ -474,10 +475,11 @@ function Dashboard() {
        {
         owner=="owner" ? 
         
-       
-        
+     
+ 
         <div className="requests-page">
-
+    
+     
 
         {/* <div className="__dashboard__follow__set__admins">
          
