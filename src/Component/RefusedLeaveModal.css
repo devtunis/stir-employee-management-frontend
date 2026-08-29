@@ -33,7 +33,7 @@
     0 2px 8px rgba(8, 25, 60, 0.04);
 
   animation: refusedModal 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  cursor:crosshair;
+ 
 }
 
 
@@ -234,6 +234,75 @@
     0 0 0 4px rgba(217, 54, 76, 0.08),
     0 0 10px rgba(217, 54, 76, 0.25);
 }
+
+
+ .approuve {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 7px 13px;
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8, 29, 19, 0.96),
+      rgba(14, 62, 39, 0.96) 50%,
+      rgba(7, 20, 13, 0.98)
+    );
+
+  border: 1px solid rgba(108, 255, 164, 0.28);
+
+  color: #a0ffc2;
+
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.22),
+    0 0 12px rgba(45, 255, 136, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.45px;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.approuve::before {
+  content: "";
+
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+
+  border-radius: 50%;
+
+  background: #6cff91;
+
+  box-shadow:
+    0 0 5px rgba(108, 255, 145, 0.45);
+
+  opacity: 0.9;
+}
+
+/* subtle premium interaction */
+.approuve:hover {
+  transform: translateY(-1px);
+
+  border-color: rgba(108, 255, 164, 0.42);
+
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.24),
+    0 0 16px rgba(45, 255, 136, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.11);
+}
+
+
 
 
 /* =========================================
@@ -442,6 +511,107 @@
   line-height: 1.6;
 }
 
+
+
+.__approve {
+  position: relative;
+
+  margin-top: 16px;
+
+  padding: 16px 17px 16px 19px;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fafffb 0%,
+      #f4fff6 100%
+    );
+
+  border: 1px solid rgba(47, 218, 87, 0.13);
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 15px rgba(47, 180, 67, 0.035);
+}
+
+
+/* Green accent */
+
+.__approve::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 3px;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #2fd55a,
+      #5ae878
+    );
+}
+
+
+/* Subtle glow */
+
+.__approve::after {
+  content: "";
+
+  position: absolute;
+
+  right: -50px;
+  bottom: -60px;
+
+  width: 130px;
+  height: 130px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(47, 213, 78, 0.06),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+
+.__approve span {
+  display: block;
+
+  color: #30b94b;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.9px;
+}
+
+
+.__approve p {
+  position: relative;
+
+  z-index: 1;
+
+  margin: 7px 0 0;
+
+  color: #56647a;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  line-height: 1.6;
+}
 
 /* =========================================
    FOOTER

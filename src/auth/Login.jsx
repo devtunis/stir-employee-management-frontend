@@ -40,7 +40,7 @@ const Login = ()=> {
     Nav("/organizations")
       
     }catch(err){
-      console.log(err.response,"f")
+      console.log(err.response)
        
     }finally{
         SetLoading(false)

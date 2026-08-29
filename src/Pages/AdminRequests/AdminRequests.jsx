@@ -98,7 +98,7 @@ useEffect(()=>{
       })
      
       if(getConge.status==200){
-         console.log(getConge?.data)
+       
         setrequestPending(getConge.data)
       }
  
@@ -119,7 +119,7 @@ const [CurrentRoles,setCurrentRoles] = useState("user")
         
      
        if(response.status==200){
-        console.log(response.data)
+       
         setCurrentRoles(response.data.res)
 
               
@@ -368,16 +368,7 @@ const [CurrentRoles,setCurrentRoles] = useState("user")
               </div>
 
 
-              <button className="filter-button">
-
-                <SlidersHorizontal size={15} />
-
-                <span>
-                  Filtres
-                </span>
-
-              </button>
-
+              
 
             </div>
 
@@ -557,48 +548,7 @@ const [CurrentRoles,setCurrentRoles] = useState("user")
               PAGINATION
           ================================================= */}
 
-          <div className="pagination">
-
-
-            <button
-              className="pagination-arrow disabled"
-            >
-              <ChevronLeft size={15} />
-              <span>
-                Précédent
-              </span>
-            </button>
-
-
-            <div className="pagination-pages">
-
-              <button className="page active">
-                1
-              </button>
-
-              <button className="page">
-                2
-              </button>
-
-              <button className="page">
-               2 
-              </button>
-
-            </div>
-
-
-            <button className="pagination-arrow">
-
-              <span>
-                Suivant
-              </span>
-
-              <ChevronRight size={15} />
-
-            </button>
-
-
-          </div>
+       
 
 
         </section>

@@ -36,8 +36,8 @@ const UseStoreContext = ({children}) => {
 
                         })
                         }else{
-                            console.log(response,"current log")
-                            alert("log out from 39")
+                          
+                             
 
                             Nav("/login")
                            

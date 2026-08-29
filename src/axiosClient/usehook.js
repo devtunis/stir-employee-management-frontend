@@ -1,10 +1,13 @@
 import axios from "../axiosClient/axios.js"
-export const use  = async(url,methode,body)=>{
+export const use  = async(url,methode,body,onLoad=null)=>{
       let data 
       let err = null
 
     try{
       
+      if(onLoad){
+        onLoad(true)
+      }
 
       switch(methode){
         case "get":{
@@ -26,6 +29,12 @@ export const use  = async(url,methode,body)=>{
 
     }catch(error){
       err =error?.response.data
+    }
+    finally{
+      if(onLoad){
+ onLoad(false)
+      }
+     
     }
     return {
       data,
