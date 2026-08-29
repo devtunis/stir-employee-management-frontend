@@ -14,6 +14,7 @@ import "./AdminStructure.css";
  
 import { use } from "../../axiosClient/usehook.js";
 import { useParams } from "react-router-dom";
+import NewLoader from "../../Component/NewLoader.jsx";
   
 const AdminManagement = ({listMember,listAdmins}) => {
   const [activeTab, setActiveTab] = useState("assign");
@@ -24,7 +25,7 @@ const AdminManagement = ({listMember,listAdmins}) => {
   const [availableChoise,SetavailableChoise] = useState(['admin-Directeur', 'admin-Chef de Service', 'admin-RH'])
   useEffect(()=>{ setlmb(listMember) },[listMember])
   useEffect(()=>{ setad(listAdmins) },[listAdmins])
-
+  const [load,setLoad] = useState(false)
  
   
  
@@ -55,11 +56,7 @@ const AdminManagement = ({listMember,listAdmins}) => {
   }
  
 
-
-
-
-
-
+ 
   const [state,SetState] = useState({
     usercin:'',
     next:'end',
@@ -68,7 +65,7 @@ const AdminManagement = ({listMember,listAdmins}) => {
   })
   const HandelAssigne  = async ()=>{
       
-
+  
        let body = {
           "repoId":roomId ,
           "cinUser":state.usercin,
@@ -81,22 +78,26 @@ const AdminManagement = ({listMember,listAdmins}) => {
     
     if(state.usercin.length==0 || state.next.length==0   || state.role.length==0 )
     {
+     
        alert("missing fields")
       return
     }
-
-
+    setLoad(true)
     
  
     const {err,data} = await use("/ogranization/setadmin_next/v1","post",body)
-    if(err!=null) return
-
+    if(err!=null) {
+         setLoad(false)
+      return 
+    }
+     
+    console.log(data.data.LeaksMembers,"<==learks members")
 
       setad(data.data.LeaksMembers)
       setlmb(data.data.res.members)
       filterchoises(data.data.filteradmin)
  
-      
+      setLoad(false)
       SetState(prev => ({
         ...prev,
         role: "",
@@ -106,7 +107,7 @@ const AdminManagement = ({listMember,listAdmins}) => {
       }));
       
   }
-   
+    
  
  const SetAdminToUser  = async  (user)=>{
 
@@ -119,15 +120,18 @@ const AdminManagement = ({listMember,listAdmins}) => {
   
     }
  
-   
+   setLoad(true)
     const {err,data} = await use("/ogranization/setadmin_next/v1","post",body)
-    if(err!=null) return
+    if(err!=null) {
+      setLoad(false)
+      return
+    }
 
      setad(data.data.filteradmin)
      setlmb(data.data.res.members)
      SetavailableChoise((prev)=>[...prev,user.role])
  
-    
+     setLoad(false)
    
         SetState(prev => ({
           ...prev,
@@ -142,6 +146,11 @@ const AdminManagement = ({listMember,listAdmins}) => {
     <div className="adminManagementPage">
 
     
+      {
+        load && <div  style={{ width:"100px",height:"100px",position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",display:"flex",justifyContent:"center",alignItems:"center"}}>
+        <NewLoader/>
+      </div> 
+      }
 
       <section className="adminStructureCard">
 
@@ -484,9 +493,9 @@ const AdminManagement = ({listMember,listAdmins}) => {
     choisir role
   </option>
 
-  {availableChoise.map((item) => (
+  {availableChoise.map((item,index) => (
     <option
-      key={item}
+      key={index}
       value={item}
       style={{
         fontWeight: "bold",
@@ -520,7 +529,7 @@ const AdminManagement = ({listMember,listAdmins}) => {
       onChange={(e)=>
         SetState((prev)=>({
           ...prev,
-          isHead:!state.isHead
+          isHead: e.target.checked
         }))
       }
     />
