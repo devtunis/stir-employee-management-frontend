@@ -710,11 +710,11 @@ function Dashboard() {
 
                 <div className="form-group full">
 
-                  <label style={{fontSize:"13px"}}>Type de congé</label>
+                  <label style={{fontSize:"15px"}}>Type de congé</label>
 
                   <div className="select-wrapper">
 
-                    <select defaultValue="" onChange={(e)=>setdataforConge((prev)=>(
+                    <select style={{fontSize:"15px"}} defaultValue="" onChange={(e)=>setdataforConge((prev)=>(
                       {
                         ...prev,
                         typeCong :e.target.value
@@ -763,7 +763,7 @@ function Dashboard() {
                     <div style={{ width: "100%", maxWidth: "300px" }}>
                       <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DatePicker
-                          label="Select date"
+                        
                           onChange={handleDateChangedebut}
                           slotProps={{
                             textField: {
@@ -805,7 +805,7 @@ function Dashboard() {
                          <div style={{ width: "100%", maxWidth: "300px" }}>
                       <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DatePicker
-                          label="Select date"
+                          
                           onChange={handleDateChangefin}
                           slotProps={{
                             textField: {
@@ -830,6 +830,7 @@ function Dashboard() {
 
                   <textarea
 
+                      style={{fontSize:"14px"}}
                    onChange={(e)=>setdataforConge((prev)=>(
                       {
                         ...prev,
