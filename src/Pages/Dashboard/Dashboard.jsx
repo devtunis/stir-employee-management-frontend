@@ -16,6 +16,7 @@ import {
   UserCheck,
   Award,
   Newspaper,
+  Check,
 } from "lucide-react";
 
 import "./Dashboard.css";
@@ -89,11 +90,11 @@ function StatCard({
 
 function SidebarItem({ icon, children, active }) {
   return (
-    <div className={`sidebar-item ${active ? "active" : ""}`}>
+    <div className={`sidebar-item`}>
       {icon}
       <span>{children}</span>
 
-      {active && <div className="active-indicator" />}
+ 
     </div>
   );
 }
@@ -211,7 +212,7 @@ function Dashboard() {
 
               )
        if(ResData.status==200){
-        
+         console.log(ResData)
         notify3()
        }
       }
@@ -220,7 +221,7 @@ function Dashboard() {
   
       catch(err){
       
-        if(err?.response?.status==409)
+        if(err?.response?.status==409 )
           
         {
          
@@ -245,7 +246,7 @@ function Dashboard() {
       
       if(response.data.res.includes("admin") ||response.data.res=="user"){
         setDataUser(response.data.data)
-      
+    
         
       }
      
@@ -293,7 +294,8 @@ function Dashboard() {
          
         if(reponse.status ==200)
         {
-          SetPendingRequests(reponse.data.requests)
+          console.log(reponse.data,"this is true")
+          SetPendingRequests(reponse.data.result.requests)
         }
 
       }catch(err){
@@ -417,7 +419,11 @@ function Dashboard() {
             icon={owner=="owner"? <CheckLineIcon size={19}/> :<Home size={19} />}
           >
             
-            {owner=="owner"?"accpet demandes" : "Tableau de bord "  }
+            {owner=="owner"?<h3 onClick={()=>__setDashAdmin(()=>{
+                   const newValue  = false
+                 localStorage.setItem("showDadming", JSON.stringify(newValue ));
+                 return newValue 
+            })}>accpet demandes</h3> : "Tableau de bord "  }
             
           </SidebarItem>
 
@@ -440,7 +446,8 @@ function Dashboard() {
      }  
 
      {(owner=="user" || owner.includes("admin"))  && <> <SidebarItem  icon={<Award   size={19} />} > <span  onClick={()=>Nav(`/attestation/${url.roomId}`)} > Obtenir une attestation de présence</span>   </SidebarItem> </>    }
-     {owner=="owner"   && <> <SidebarItem  icon={<User size={19} />} >  <h2 onClick={()=>{
+
+     {owner=="owner"   && <> <SidebarItem  icon={<User size={19} />} >  <h3 onClick={()=>{
       __setDashAdmin((p) => {
         const newValue = !p;
         localStorage.setItem("showDadming", JSON.stringify(newValue));
@@ -448,12 +455,22 @@ function Dashboard() {
       });
 
       
-     }}> set admins</h2> </SidebarItem> </>    }
+     }}> Définir les administrateurs</h3> </SidebarItem> </>    }
           
         
  
+      {owner=="owner"   && <> <SidebarItem  icon={<Check size={19} />} >  <h3 onClick={()=>{
+                  Nav(`/organization/demandeConge/${url.roomId}`)
+      
+     }}> Approuver le congé</h3> </SidebarItem> </>    }
+          
+
         
         </nav>
+
+
+
+
 
 
         <div className="sidebar-bottom" onClick={()=>Nav("/login")}>
@@ -668,7 +685,7 @@ function Dashboard() {
 
                     {dataUser?.response_conge?.map((request, index) => (
 
-                      <tr key={request.dateResponse_conge} style={{cursor:"pointer"}}>
+                      <tr  key={request.dateResponse_conge} style={{cursor:"pointer",background:request.cin_reponse=="owner" && "#bfbbbb"}}>
 
                         <td style={{fontSize:"10px"}}>{request.dateResponse_conge.substr(0,request.dateResponse_conge.indexOf("T")).replaceAll("-","/")}</td>
 
@@ -722,11 +739,11 @@ function Dashboard() {
 
                 <div className="form-group full">
 
-                  <label style={{fontSize:"15px"}}>Type de congé</label>
+                  <label style={{fontSize:"13px"}}>Type de congé</label>
 
                   <div className="select-wrapper">
 
-                    <select style={{fontSize:"15px"}} defaultValue="" onChange={(e)=>setdataforConge((prev)=>(
+                    <select style={{fontSize:"13px"}} defaultValue="" onChange={(e)=>setdataforConge((prev)=>(
                       {
                         ...prev,
                         typeCong :e.target.value
@@ -772,7 +789,7 @@ function Dashboard() {
                       /> */}
 
                       
-                    <div style={{ width: "100%", maxWidth: "300px" }}>
+                    <div style={{ width: "100%", maxWidth: "200px" }}>
                       <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DatePicker
                         
@@ -814,7 +831,7 @@ function Dashboard() {
                         placeholder="jj/mm/aaaa"
                       /> */}
 
-                         <div style={{ width: "100%", maxWidth: "300px" }}>
+                         <div style={{ width: "100%", maxWidth: "200px" }}>
                       <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DatePicker
                           

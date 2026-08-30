@@ -19,12 +19,17 @@ const Resigter = () => {
   const HandelCreatAccount = async (e)=>{
     SetLoading(true)
     e.preventDefault()
+    if(!state.prenom ||  !state.nom || !state.cin || !state.tlf || !state.password){
+      alert("missing fields")
+      return 
+    }
     try{
    
         const ReponseData = await axios.post("/auth/register/v1",{
                 "cin":state.cin,
                 "nom":state.nom,
                 "prenom":state.prenom,
+                "tlf":state.tlf,
                 "password":state.password
           })
 
@@ -138,6 +143,9 @@ const Resigter = () => {
 
                   <input
                     type="text"
+                    style={{
+                      textAlign:"center"
+                    }}
                     placeholder="Votre prénom"
                     onInput={(e)=>SetState({
                         ...state ,
@@ -165,6 +173,9 @@ const Resigter = () => {
                   <input
                     type="text"
                     placeholder="Votre nom"
+                     style={{
+                      textAlign:"center"
+                    }}
                     onInput={(e)=>SetState({
                         ...state ,
                         nom : e.target.value
@@ -180,31 +191,14 @@ const Resigter = () => {
               <label>Cin</label>
 
               <div className="input-box">
-                 <svg
-          className="stir-input-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          {/* ID card */}
-          <rect x="3" y="5" width="18" height="14" rx="2" />
-
-          {/* Person */}
-          <circle cx="8" cy="10" r="1.7" />
-          <path d="M5.8 15c.5-1.5 1.3-2.2 2.2-2.2s1.7.7 2.2 2.2" />
-
-          {/* Card information */}
-          <path d="M13 9h5" />
-          <path d="M13 12h5" />
-          <path d="M13 15h3.5" />
-        </svg>
+              
 
                 <input
                   type="text"
                   placeholder="votre cin"
+                   style={{
+                      textAlign:"center"
+                    }}
                      onInput={(e)=>SetState({
                         ...state ,
                         cin : e.target.value

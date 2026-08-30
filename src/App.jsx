@@ -19,6 +19,7 @@ const  Firstview = lazy(()=>import("./StirHome/StirHome"))
 
 import STIRLoader from "./Component/StirLoader";
 import News from "./New/News";
+import OwnerMangeConge from "./ownerMandeConge/OwnerMangeConge";
 
 const App = () => {
   return (
@@ -29,7 +30,7 @@ const App = () => {
         <Route path="/" element={<Firstview />} />
           <Route path="/login" element={<Login />} />
 
-          <Route path="/resigter" element={<Resigter />} />
+          <Route path="/register" element={<Resigter />} />
 
           <Route path="/organizations" element={<Home />} />
 
@@ -50,6 +51,7 @@ const App = () => {
           <Route path="/test2" element={<StirHome/>} />  
 
            <Route path="/news/organization/:roomid" element={<News />} />
+           <Route path="/organization/demandeConge/:roomid" element={<OwnerMangeConge />} />
         </Routes>
       </Suspense>
     </>

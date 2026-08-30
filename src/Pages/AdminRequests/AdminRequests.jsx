@@ -10,10 +10,9 @@ import {
   Settings,
   LogOut,
   Search,
-  SlidersHorizontal,
+ 
   Eye,
-  ChevronLeft,
-  ChevronRight,
+ 
 } from "lucide-react";
 
 import "./AdminRequests.css";
@@ -255,26 +254,7 @@ const [CurrentRoles,setCurrentRoles] = useState("user")
           </SidebarItem>
 
 
-          <SidebarItem
-            icon={<Users size={19} />}
-          >
-            Utilisateurs
-          </SidebarItem>
-
-
-          <SidebarItem
-            icon={<FileBarChart size={19} />}
-          >
-            Rapports
-          </SidebarItem>
-
-
-          <SidebarItem
-            icon={<Settings size={19} />}
-          >
-            Paramètres
-          </SidebarItem>
-
+    
         </nav>
 
 
