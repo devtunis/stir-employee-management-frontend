@@ -1,0 +1,1531 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  background: #eef2f8;
+
+  color: #172f5c;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.admin-dashboard {
+  min-height: 100vh;
+
+  background: #eef2f8;
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.admin-topbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 82px;
+
+  z-index: 100;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding:
+    0 34px 0 27px;
+
+  background:
+    linear-gradient(
+      100deg,
+      #061d58 0%,
+      #092a6b 55%,
+      #0b2f73 100%
+    );
+
+  color: white;
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.08);
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.admin-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+.admin-brand-logo {
+  width: 53px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.admin-brand-logo::before {
+  content: "";
+
+  position: absolute;
+
+  top: 1px;
+  left: 26px;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #f2b338;
+}
+
+.admin-brand-logo span {
+  font-size: 26px;
+
+  font-weight: 800;
+
+  letter-spacing: -2px;
+}
+
+.admin-brand-text {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+
+  line-height: 1.25;
+}
+
+.admin-brand-text strong {
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+.admin-brand-text span {
+  font-size: 10px;
+
+  opacity: 0.72;
+}
+
+
+/* =========================================================
+   HEADER USER
+========================================================= */
+
+.admin-header-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 27px;
+}
+
+.admin-notification {
+  width: 38px;
+  height: 38px;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.admin-notification span {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #ef4148;
+
+  color: white;
+
+  font-size: 8px;
+
+  font-weight: 700;
+}
+
+.admin-user-menu {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  cursor: pointer;
+}
+
+.admin-avatar {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  background: #dfc7b0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 25px;
+
+  overflow: hidden;
+
+  border:
+    2px solid rgba(255,255,255,0.25);
+}
+
+.admin-user-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.admin-user-info strong {
+  font-size: 11px;
+}
+
+.admin-user-info span {
+  font-size: 9px;
+
+  opacity: 0.62;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.admin-sidebar {
+  position: fixed;
+
+  top: 82px;
+  left: 0;
+  bottom: 0;
+
+  width: 250px;
+
+  z-index: 90;
+
+  background:
+    linear-gradient(
+      180deg,
+      #061d54 0%,
+      #041941 100%
+    );
+
+  color: white;
+
+  padding:
+    26px 14px 15px;
+
+  border-right:
+    1px solid rgba(255,255,255,0.05);
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   MENU TITLE
+========================================================= */
+
+.admin-menu-title {
+  padding:
+    0 14px 14px;
+
+  color:
+    rgba(255,255,255,0.42);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.admin-navigation {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.admin-sidebar-item {
+  height: 44px;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  padding:
+    0 14px;
+
+  border-radius: 7px;
+
+  position: relative;
+
+  color:
+    rgba(255,255,255,0.72);
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.admin-sidebar-item span {
+  font-size: 11px;
+
+  font-weight: 500;
+}
+
+.admin-sidebar-item:hover {
+  color: white;
+
+  background:
+    rgba(255,255,255,0.045);
+}
+
+.admin-sidebar-item.active {
+  color: white;
+
+  background:
+    linear-gradient(
+      90deg,
+      #1749a8,
+      #123b8b
+    );
+
+  box-shadow:
+    inset 0 0 22px
+    rgba(48,104,218,0.12);
+}
+
+.admin-active-indicator {
+  position: absolute;
+
+  right: 0;
+
+  top: 8px;
+
+  width: 3px;
+  height: 28px;
+
+  border-radius:
+    3px 0 0 3px;
+
+  background: #4c87ff;
+
+  box-shadow:
+    0 0 10px
+    rgba(76,135,255,0.8);
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+========================================================= */
+
+.admin-sidebar-bottom {
+  margin-top: auto;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,0.07);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.admin-main {
+  min-height: 100vh;
+
+  margin-left: 250px;
+
+  padding:
+    103px 38px 35px;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.admin-page-header {
+  margin-bottom: 17px;
+}
+
+.admin-page-header h1 {
+  color: #173a78;
+
+  font-size: 21px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  margin-bottom: 5px;
+}
+
+.admin-page-header p {
+  color: #7a879b;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   MAIN REQUEST CARD
+========================================================= */
+
+.requests-container {
+  width: 100%;
+
+  background: white;
+
+  border:
+    1px solid #e3e8f0;
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 4px 18px
+    rgba(18,42,81,0.07);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.requests-toolbar {
+  min-height: 69px;
+
+  padding:
+    10px 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border-bottom:
+    1px solid #edf0f4;
+}
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+.request-tabs {
+  height: 42px;
+
+  display: flex;
+
+  align-items: stretch;
+
+  gap: 2px;
+}
+
+.request-tab {
+  min-width: 73px;
+
+  height: 42px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #78849a;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  position: relative;
+
+  cursor: pointer;
+
+  padding:
+    0 12px;
+}
+
+.request-tab:hover {
+  color: #1d4382;
+}
+
+.request-tab.active {
+  color: #214a92;
+}
+
+.request-tab.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 10px;
+  right: 10px;
+
+  bottom: 0;
+
+  height: 2px;
+
+  background: #315fbb;
+
+  border-radius:
+    2px 2px 0 0;
+}
+
+
+/* =========================================================
+   RIGHT ACTIONS
+========================================================= */
+
+.request-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-box {
+  width: 190px;
+  height: 35px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding:
+    0 10px;
+
+  border:
+    1px solid #e0e5ed;
+
+  border-radius: 5px;
+
+  background: #fff;
+
+  color: #8a96a9;
+}
+
+.search-box svg {
+  flex-shrink: 0;
+}
+
+.search-box input {
+  width: 100%;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #52627d;
+
+  font-size: 9px;
+}
+
+.search-box input::placeholder {
+  color: #a1aaba;
+}
+
+
+/* =========================================================
+   FILTER BUTTON
+========================================================= */
+
+.filter-button {
+  height: 35px;
+
+  padding:
+    0 12px;
+
+  border:
+    1px solid #e0e5ed;
+
+  border-radius: 5px;
+
+  background: white;
+
+  color: #526587;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.filter-button:hover {
+  background: #f7f9fc;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
+
+.admin-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.admin-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  table-layout: fixed;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.admin-table thead {
+  background: #f7f9fc;
+}
+
+.admin-table th {
+  height: 42px;
+
+  padding:
+    0 15px;
+
+  text-align: left;
+
+  color: #66758e;
+
+  font-size: 8.5px;
+
+  font-weight: 700;
+
+  border-bottom:
+    1px solid #edf0f4;
+}
+
+
+/* =========================================================
+   COLUMN WIDTHS
+========================================================= */
+
+.admin-table th:nth-child(1) {
+  width: 17%;
+}
+
+.admin-table th:nth-child(2) {
+  width: 20%;
+}
+
+.admin-table th:nth-child(3) {
+  width: 17%;
+}
+
+.admin-table th:nth-child(4) {
+  width: 14%;
+}
+
+.admin-table th:nth-child(5) {
+  width: 16%;
+}
+
+.admin-table th:nth-child(6) {
+  width: 8%;
+}
+
+
+/* =========================================================
+   TABLE BODY
+========================================================= */
+
+.admin-table td {
+  height: 52px;
+
+  padding:
+    0 15px;
+
+  border-bottom:
+    1px solid #edf0f4;
+
+  color: #66758e;
+
+  font-size: 12.5px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.admin-table tbody tr {
+  transition:
+    background 0.15s ease;
+}
+
+.admin-table tbody tr:hover {
+  background: #fafbfd;
+}
+
+.admin-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   EMPLOYEE
+========================================================= */
+
+.employee-cell {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  min-width: 0;
+}
+
+.employee-avatar {
+  width: 29px;
+  height: 29px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #eadbc9;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #edf0f4;
+}
+
+.employee-cell span {
+  color: #344e79;
+
+  font-size: 8.5px;
+
+  font-weight: 600;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.admin-status {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    6px 10px;
+
+  border-radius: 5px;
+
+  font-size: 7.5px;
+
+  font-weight: 600;
+}
+
+.admin-status.pending {
+  background: #fff5df;
+
+  color: #c79330;
+}
+
+.admin-status.approved {
+  background: #e2f6eb;
+
+  color: #42a276;
+}
+
+.admin-status.rejected {
+  background: #ffe8e8;
+
+  color: #d75a5a;
+}
+
+
+/* =========================================================
+   VIEW BUTTON
+========================================================= */
+
+.view-request {
+  width: 30px;
+  height: 30px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #345ca2;
+
+  border-radius: 5px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.view-request:hover {
+  background: #edf3ff;
+
+  color: #1c4e9d;
+}
+
+
+/* =========================================================
+   EMPTY TABLE
+========================================================= */
+
+.empty-table {
+  height: 180px !important;
+
+  text-align: center !important;
+
+  color: #9aa5b6 !important;
+
+  font-size: 10px !important;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.pagination {
+  height: 70px;
+
+  padding:
+    0 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  border-top:
+    1px solid #f0f2f5;
+}
+
+
+/* =========================================================
+   PAGINATION BUTTONS
+========================================================= */
+
+.pagination-arrow {
+  height: 34px;
+
+  padding:
+    0 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  border:
+    1px solid #e4e8ee;
+
+  border-radius: 5px;
+
+  background: white;
+
+  color: #365996;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.pagination-arrow:hover {
+  background: #f5f8fc;
+}
+
+.pagination-arrow.disabled {
+  color: #b7bfcc;
+
+  cursor: default;
+
+  background: #fbfcfd;
+}
+
+
+/* =========================================================
+   PAGE NUMBERS
+========================================================= */
+
+.pagination-pages {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.page {
+  width: 35px;
+  height: 35px;
+
+  border:
+    1px solid #e4e8ee;
+
+  border-radius: 5px;
+
+  background: white;
+
+  color: #59708f;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.page:hover {
+  background: #f3f6fb;
+}
+
+.page.active {
+  color: white;
+
+  border-color: #123b83;
+
+  background:
+    linear-gradient(
+      135deg,
+      #103b83,
+      #174a9c
+    );
+
+  box-shadow:
+    0 3px 7px
+    rgba(21,64,133,0.2);
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1400px) {
+
+  .admin-main {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .admin-table td {
+    height: 55px;
+  }
+
+  .search-box {
+    width: 195px;
+  }
+}
+
+
+/* =========================================================
+   1200px
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .admin-sidebar {
+    width: 225px;
+  }
+
+  .admin-main {
+    margin-left: 225px;
+
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+}
+
+
+/* =========================================================
+   950px
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .admin-sidebar {
+    width: 70px;
+
+    padding:
+      20px 8px 15px;
+  }
+
+  .admin-menu-title {
+    display: none;
+  }
+
+  .admin-sidebar-item {
+    justify-content: center;
+
+    padding: 0;
+  }
+
+  .admin-sidebar-item span {
+    display: none;
+  }
+
+  .admin-active-indicator {
+    right: -8px;
+  }
+
+  .admin-main {
+    margin-left: 70px;
+  }
+
+  .admin-brand-text {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   750px
+========================================================= */
+
+@media (max-width: 750px) {
+
+  .admin-main {
+    padding:
+      100px 16px 25px;
+  }
+
+  .requests-toolbar {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    padding: 8px 12px 12px;
+  }
+
+  .request-tabs {
+    overflow-x: auto;
+  }
+
+  .request-actions {
+    width: 100%;
+  }
+
+  .search-box {
+    flex: 1;
+
+    width: auto;
+  }
+
+  .admin-table {
+    min-width: 850px;
+  }
+
+  .pagination {
+    justify-content: center;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 550px) {
+
+  .admin-topbar {
+    height: 72px;
+
+    padding:
+      0 15px;
+  }
+
+  .admin-sidebar {
+    top: 72px;
+  }
+
+  .admin-header-right {
+    gap: 8px;
+  }
+
+  .admin-user-info {
+    display: none;
+  }
+
+  .admin-main {
+    margin-left: 70px;
+
+    padding-top: 90px;
+  }
+
+  .admin-page-header h1 {
+    font-size: 18px;
+  }
+
+  .admin-page-header p {
+    font-size: 9px;
+  }
+
+  .pagination {
+    height: 62px;
+
+    gap: 7px;
+  }
+
+  .pagination-arrow {
+    padding:
+      0 8px;
+  }
+
+  .pagination-arrow span {
+    display: none;
+  }
+
+  .pagination-pages {
+    gap: 5px;
+  }
+
+  .page {
+    width: 32px;
+    height: 32px;
+  }
+
+}
+
+
+
+.holiday-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 24px;
+  padding: 10px 0;
+}
+
+.holiday-card {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #fafafa 100%
+  );
+
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 22px;
+
+  padding: 24px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.06),
+    0 2px 8px rgba(0, 0, 0, 0.03);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  overflow: hidden;
+}
+
+.holiday-card::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 4px;
+
+  background: linear-gradient(
+    90deg,
+    #111827,
+    #d4af37,
+    #111827
+  );
+}
+
+.holiday-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.10),
+    0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+
+.holiday-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.employee-info {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.employee-avatar {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    #111827,
+    #374151
+  );
+
+  color: white;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  box-shadow: 0 5px 15px rgba(17, 24, 39, 0.2);
+}
+
+.employee-info h3 {
+  margin: 0 0 4px;
+
+  color: #111827;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.cin {
+  color: #9ca3af;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Status */
+
+.admin-status.pending {
+  padding: 7px 12px;
+
+  border-radius: 999px;
+
+  background: #fff8e6;
+  color: #b7791f;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  border: 1px solid #f6dfaa;
+}
+
+/* Content */
+
+.holiday-card-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+
+  padding: 20px 0;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.info-item:last-child {
+  grid-column: 1 / -1;
+}
+
+.info-label {
+  color: #9ca3af;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.info-item strong {
+  color: #1f2937;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Reason */
+
+.holiday-reason {
+  background: #f8f9fb;
+
+  border-radius: 14px;
+
+  padding: 14px;
+
+  margin-bottom: 20px;
+}
+
+.holiday-reason p {
+  margin: 6px 0 0;
+
+  color: #4b5563;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Actions */
+
+.holiday-card-actions {
+  display: flex;
+  gap: 10px;
+
+  padding-top: 17px;
+
+  border-top: 1px solid #eeeeee;
+}
+
+.holiday-btn {
+  flex: 1;
+
+  height: 43px;
+
+  border: none;
+  border-radius: 12px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.holiday-btn.refuse {
+  background: #fff1f2;
+  color: #dc2626;
+
+  border: 1px solid #fecdd3;
+}
+
+.holiday-btn.refuse:hover {
+  background: #dc2626;
+  color: white;
+
+  box-shadow: 0 6px 18px rgba(220, 38, 38, 0.2);
+}
+
+.holiday-btn.accept {
+  background: linear-gradient(
+    135deg,
+    #111827,
+    #1f2937
+  );
+
+  color: white;
+
+  box-shadow: 0 6px 16px rgba(17, 24, 39, 0.15);
+}
+
+.holiday-btn.accept:hover {
+  background: linear-gradient(
+    135deg,
+    #d4af37,
+    #b8962e
+  );
+
+  color: #111827;
+
+  box-shadow: 0 7px 20px rgba(212, 175, 55, 0.25);
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .holiday-cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .holiday-card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .holiday-card-header {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .holiday-card-content {
+    grid-template-columns: 1fr;
+  }
+
+  .info-item:last-child {
+    grid-column: auto;
+  }
+}
+
+
+

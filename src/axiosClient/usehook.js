@@ -1,4 +1,10 @@
 import axios from "../axiosClient/axios.js"
+
+
+// doucmention 
+// usage
+// use(url<String> ,methode<String>,body<body>,onload<you can pass it >)
+// const {data,error} = await use(...)
 export const use  = async(url,methode,body,onLoad=null)=>{
       let data 
       let err = null

@@ -19,7 +19,7 @@ const UseStoreContext = ({children}) => {
     
 
     useEffect(()=>{
-        if (location.pathname === "/login" || location.pathname=="/register") {
+        if (location.pathname === "/login" || location.pathname=="/register" ||location.pathname=="/") {
         return;
     }
         if(!state.cin){
