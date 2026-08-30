@@ -1,7 +1,10 @@
 import React from "react";
 import "./StirHome.css";
+import { useNavigate } from "react-router-dom";
 
 const StirHome = () => {
+
+  const Nav =useNavigate()
   return (
     <div className="stir-page">
 
@@ -78,8 +81,8 @@ const StirHome = () => {
             Partenaires
           </a>
 
-          <a href="#">
-            Carrière
+          <a href="/login">
+            Organizations 
           </a>
 
           <input

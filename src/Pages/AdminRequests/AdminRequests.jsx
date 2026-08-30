@@ -94,7 +94,8 @@ function AdminRequests( ) {
 useEffect(()=>{
   const getcong = async ()=>{
       const getConge = await axios.post("holiday/seeConge/v1",{
-    "roomId":"dwbwz2"
+        "roomId":url.roomId
+
       })
      
       if(getConge.status==200){
