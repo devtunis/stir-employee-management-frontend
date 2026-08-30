@@ -12,9 +12,11 @@ const CreateOrganization = lazy(() =>
   import("./Pages/createOrganization.jsx/CreateOrganization")
 );
 const Certificate = lazy(() => import("./Certifacte/Certificate"));
-const CalendarComp = lazy(() => import("./Component/CalendarComp"));
-const CeritfacteConge = lazy(()=>import("./CertifConge/CertifConge"))
 const StirHome  = lazy(()=>import("./StirHome/StirHome"))
+
+const  Firstview = lazy(()=>import("./StirHome/StirHome"))
+
+
 import STIRLoader from "./Component/StirLoader";
 import News from "./New/News";
 
@@ -23,6 +25,8 @@ const App = () => {
     <>
       <Suspense fallback={<STIRLoader />}>
         <Routes>
+          
+        <Route path="/" element={<Firstview />} />
           <Route path="/login" element={<Login />} />
 
           <Route path="/resigter" element={<Resigter />} />
@@ -43,7 +47,7 @@ const App = () => {
 
           <Route path="/attestation/:roomid" element={<Certificate />} />
 
-          {/* <Route path="/test2" element={<News />} /> */}
+          <Route path="/test2" element={<StirHome/>} />  
 
            <Route path="/news/organization/:roomid" element={<News />} />
         </Routes>

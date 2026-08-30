@@ -21,7 +21,7 @@ const Resigter = () => {
     e.preventDefault()
     try{
    
-        const ReponseData = await axios.post("/register",{
+        const ReponseData = await axios.post("/auth/register/v1",{
                 "cin":state.cin,
                 "nom":state.nom,
                 "prenom":state.prenom,
